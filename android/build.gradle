@@ -26,9 +26,17 @@ android {
 
     defaultConfig {
         minSdkVersion 16
+//        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
         disable 'InvalidPackage'
     }
 }
+
+dependencies {
+//    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.ads.consent:consent-library:1.0.7'
+//    implementation 'com.android.support:multidex:1.0.3'
+}
+
