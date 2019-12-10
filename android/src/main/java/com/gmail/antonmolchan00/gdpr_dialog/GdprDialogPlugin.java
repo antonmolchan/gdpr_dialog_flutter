@@ -120,7 +120,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
   }
 
   @Override
-  public void onMethodCall(MethodCall call, @NonNull Result result) {
+  public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("gdpr.activate")) {
       dialogResult = result;
 
