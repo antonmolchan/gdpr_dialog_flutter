@@ -24,3 +24,12 @@ Bool variable "isForTest" for testing library, set true to activate setDebugGeog
     }
   }
 ```
+
+## Usage
+
+```
+GdprDialog().showDialog('pub-id', 'privacy-policy/', isForTest: false).then((onValue) {
+            print(onValue); // result of users choise
+});
+```
+

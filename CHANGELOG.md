@@ -14,3 +14,6 @@ Bug fix
 ## 1.0.3
 Add bool variable "isForTest" for testing library, set true to activate setDebugGeography
 In release build set false or delete this argument!
+
+## 1.0.4
+Format library and add readme
