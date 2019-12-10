@@ -12,11 +12,12 @@ class GdprDialog {
 
   // Show dialog with asking for get users info for add
   // ignore: missing_return
-  Future<bool> showDialog(String publisherId, String privacyUrl) {
+  Future<bool> showDialog(String publisherId, String privacyUrl, {bool isForTest = false}) {
     if (Platform.isAndroid) {
       return _channel.invokeMethod("gdpr.activate", <String, dynamic>{
         'publisherId': publisherId,
         'privacyUrl': privacyUrl,
+        'isForTest': isForTest,
       });
     }
   }

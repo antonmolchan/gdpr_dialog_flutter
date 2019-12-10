@@ -2,7 +2,6 @@ package com.gmail.antonmolchan00.gdpr_dialog;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 
@@ -31,10 +30,10 @@ public class GdprDialogPlugin implements MethodCallHandler {
   private Result dialogResult;
   private ConsentForm form;
 
-  private void checkForConsent(String publisherId, final String privacyUrl) {
+  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest) {
     ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    ConsentInformation.getInstance(activity).addTestDevice("4AB7E57C35ACF6F18F67C9D4A9235B6E");
-    ConsentInformation.getInstance(activity).setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
+    if (isForTest)
+      ConsentInformation.getInstance(activity).setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
     String[] publisherIds = {publisherId}; // id владельца приложения в адмоб
     consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
       @Override
@@ -123,11 +122,13 @@ public class GdprDialogPlugin implements MethodCallHandler {
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("gdpr.activate")) {
       dialogResult = result;
-
+      boolean isForTest = false;
       String publisherId = call.argument("publisherId");
       String privacyUrl = call.argument("privacyUrl");
+      try { isForTest = call.argument("isForTest");
+      }catch (Exception ignored){}
 
-      checkForConsent(publisherId, privacyUrl);
+      checkForConsent(publisherId, privacyUrl, isForTest);
 
     } else {
       result.notImplemented();
