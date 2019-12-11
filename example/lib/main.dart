@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    GdprDialog().showDialog('pub id', 'https://privacy-policy/', isForTest: true).then((onValue) {
+    GdprDialog().showDialog('pub id', 'https://privacy-policy/', isForTest: true, testDeviceId: '').then((onValue) {
       print('result === $onValue');
     });
   }

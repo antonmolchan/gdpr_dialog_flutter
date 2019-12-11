@@ -30,10 +30,12 @@ public class GdprDialogPlugin implements MethodCallHandler {
   private Result dialogResult;
   private ConsentForm form;
 
-  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest) {
+  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest, String testDeviceId) {
     ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    if (isForTest)
+    if (isForTest) {
       ConsentInformation.getInstance(activity).setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
+      ConsentInformation.getInstance(activity).addTestDevice(testDeviceId);
+    }
     String[] publisherIds = {publisherId}; // id владельца приложения в адмоб
     consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
       @Override
@@ -125,10 +127,11 @@ public class GdprDialogPlugin implements MethodCallHandler {
       boolean isForTest = false;
       String publisherId = call.argument("publisherId");
       String privacyUrl = call.argument("privacyUrl");
+      String testDeviceId = call.argument("testDeviceId");
       try { isForTest = call.argument("isForTest");
       }catch (Exception ignored){}
 
-      checkForConsent(publisherId, privacyUrl, isForTest);
+      checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId);
 
     } else {
       result.notImplemented();

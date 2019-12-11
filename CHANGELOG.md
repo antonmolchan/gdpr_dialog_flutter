@@ -17,3 +17,6 @@ In release build set false or delete this argument!
 
 ## 1.0.4
 Format library and add readme
+
+## 1.0.5
+Big fix test version, add 'testDeviceId' variable
