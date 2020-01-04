@@ -20,3 +20,6 @@ Format library and add readme
 
 ## 1.0.5
 Big fix test version, add 'testDeviceId' variable
+
+## 1.0.6
+Try catch block for returned result, cant find better solution
