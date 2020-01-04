@@ -64,7 +64,9 @@ public class GdprDialogPlugin implements MethodCallHandler {
   }
 
   private void returnResult (boolean result) {
+    try {
     dialogResult.success(result);
+    }catch (Exception ignored){}
   }
 
   private void requestConsent(String url) {
