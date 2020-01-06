@@ -78,8 +78,11 @@ public class GdprDialogPlugin implements MethodCallHandler {
             .withListener(new ConsentFormListener() {
               @Override
               public void onConsentFormLoaded() {
-                if (form != null)
+                if (form != null && !activity.isFinishing()) {
                   form.show();
+                } else {
+                  returnResult(false);
+                }
               }
 
               @Override
@@ -92,8 +95,6 @@ public class GdprDialogPlugin implements MethodCallHandler {
                     returnResult(true);
                     break;
                   case NON_PERSONALIZED:
-                    returnResult(false);
-                    break;
                   case UNKNOWN:
                     returnResult(false);
                     break;

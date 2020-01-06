@@ -23,3 +23,6 @@ Big fix test version, add 'testDeviceId' variable
 
 ## 1.0.6
 Try catch block for returned result, cant find better solution
+
+## 1.0.7
+Check if activity is not finished before start form dialog
