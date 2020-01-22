@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - gdpr_dialog (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - gdpr_dialog (from `.symlinks/plugins/gdpr_dialog/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  gdpr_dialog:
+    :path: ".symlinks/plugins/gdpr_dialog/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  gdpr_dialog: 7f5e66ac6c6dc81ecd5a866db804ffb9a61dabf2
+
+PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
+
+COCOAPODS: 1.8.3

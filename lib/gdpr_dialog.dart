@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/services.dart';
 
 class GdprDialog {
@@ -13,13 +11,11 @@ class GdprDialog {
   // Show dialog with asking for get users info for add
   // ignore: missing_return
   Future<bool> showDialog(String publisherId, String privacyUrl, {bool isForTest = false, String testDeviceId = ''}) {
-    if (Platform.isAndroid) {
-      return _channel.invokeMethod("gdpr.activate", <String, dynamic>{
-        'publisherId': publisherId,
-        'privacyUrl': privacyUrl,
-        'isForTest': isForTest,
-        'testDeviceId': testDeviceId,
-      });
-    }
+    return _channel.invokeMethod("gdpr.activate", <String, dynamic>{
+      'publisherId': publisherId,
+      'privacyUrl': privacyUrl,
+      'isForTest': isForTest,
+      'testDeviceId': testDeviceId,
+    });
   }
 }
