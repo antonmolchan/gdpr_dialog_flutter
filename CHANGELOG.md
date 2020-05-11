@@ -29,3 +29,6 @@ Check if activity is not finished before start form dialog
 
 ## 1.0.8
 Add IOS functionality
+
+## 1.0.9
+Change description
