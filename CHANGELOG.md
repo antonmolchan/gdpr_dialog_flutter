@@ -32,3 +32,6 @@ Add IOS functionality
 
 ## 1.0.9
 Change description
+
+## 1.1.0
+Add function to set consent status as UNKNOWN

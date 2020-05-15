@@ -20,9 +20,18 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         
         self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!)
 
+       case "gdpr.setUnknown":
+        self.setConsentToUnknown(result: result);
+        
       default:
         result(FlutterMethodNotImplemented)
       }
+    }
+
+    private func setConsentToUnknown(result: @escaping FlutterResult) {
+        PACConsentInformation.sharedInstance.consentStatus = .unknown;
+         print("consent == UNKNOWN");
+        result(true);
     }
 
     private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String) {

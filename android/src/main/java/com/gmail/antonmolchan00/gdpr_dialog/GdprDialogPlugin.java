@@ -27,7 +27,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
 
   private Activity activity;
   private MethodChannel channel;
-  private Result dialogResult;
+  private Result result;
   private ConsentForm form;
 
   private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest, String testDeviceId) {
@@ -65,7 +65,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
 
   private void returnResult (boolean result) {
     try {
-    dialogResult.success(result);
+    this.result.success(result);
     }catch (Exception ignored){}
   }
 
@@ -123,10 +123,18 @@ public class GdprDialogPlugin implements MethodCallHandler {
     channel.setMethodCallHandler(plugin);
   }
 
+  private void setConsentToUnknown() {
+    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
+    consentInformation.setConsentStatus(ConsentStatus.UNKNOWN);
+    try {
+      this.result.success(true);
+    }catch (Exception ignored){}
+  }
+
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("gdpr.activate")) {
-      dialogResult = result;
+      this.result = result;
       boolean isForTest = false;
       String publisherId = call.argument("publisherId");
       String privacyUrl = call.argument("privacyUrl");
@@ -136,6 +144,9 @@ public class GdprDialogPlugin implements MethodCallHandler {
 
       checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId);
 
+    } else if (call.method.equals("gdpr.setUnknown")){
+      this.result = result;
+      setConsentToUnknown();
     } else {
       result.notImplemented();
     }
