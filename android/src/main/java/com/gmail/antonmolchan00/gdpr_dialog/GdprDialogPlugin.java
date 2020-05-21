@@ -131,10 +131,30 @@ public class GdprDialogPlugin implements MethodCallHandler {
     }catch (Exception ignored){}
   }
 
+  private void getConsentStatus() {
+    String resultStatus = "ERROR";
+    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
+    ConsentStatus status = consentInformation.getConsentStatus();
+    switch (status) {
+      case PERSONALIZED:
+        resultStatus = "PERSONALIZED";
+        break;
+      case NON_PERSONALIZED:
+        resultStatus = "NON_PERSONALIZED";
+        break;
+      case UNKNOWN:
+        resultStatus = "UNKNOWN";
+        break;
+    }
+    try {
+      this.result.success(resultStatus);
+    }catch (Exception ignored){}
+  }
+
   @Override
   public void onMethodCall(MethodCall call, Result result) {
-    if (call.method.equals("gdpr.activate")) {
       this.result = result;
+    if (call.method.equals("gdpr.activate")) {
       boolean isForTest = false;
       String publisherId = call.argument("publisherId");
       String privacyUrl = call.argument("privacyUrl");
@@ -145,8 +165,9 @@ public class GdprDialogPlugin implements MethodCallHandler {
       checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId);
 
     } else if (call.method.equals("gdpr.setUnknown")){
-      this.result = result;
       setConsentToUnknown();
+    } else if (call.method.equals("gdpr.getConsentStatus")) {
+      getConsentStatus();
     } else {
       result.notImplemented();
     }

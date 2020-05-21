@@ -2,15 +2,12 @@
 
 
  showDialog method get admob publisherID and privacy string url of your site.
- Then get request native to android/ios dialog and set result as boolean.
+ Then get native request to android/ios dialog and set result as boolean.
+- true = show personalized ads
+- false = show non personalized ads
  
 Bool variable "isForTest" for testing library, set true to activate setDebugGeography. (works only for Android)
-
- In release build set false or delete this argument!
- 
- true = show personalized ads
- 
- false = show non personalized ads
+In release build set false or delete this argument!
   
 ### Usage
 
@@ -23,9 +20,9 @@ GdprDialog.instance.showDialog('pub-2111344032223404', 'https://plus1s.com/priva
 
 In the release build, you only need the first two parameters.
 
-The setConsentToUnknown method sets the consent status to UNKNOW
+#### The setConsentToUnknown method sets the consent status to UNKNOW
 
-In iOS, if you call showDialog () a second time, it will be shown and the user can change their consent option, for Android I added setConsentToUnknown (), which resets the user’s consent status.
+In iOS, if you call showDialog() a second time, it will be shown and the user can change their consent option, for Android I added setConsentToUnknown(), which resets the user’s consent status.
 
 ### Usage
 
@@ -33,3 +30,16 @@ In iOS, if you call showDialog () a second time, it will be shown and the user c
 GdprDialog.instance.setConsentToUnknown();
 ```
 
+
+#### One more method getConsentStatus() that return consent status
+
+### Usage
+
+```
+GdprDialog.instance.getConsentStatus();
+```
+
+It will return string of consent status:
+- PERSONALIZED
+- NON_PERSONALIZED
+- UNKNOWN

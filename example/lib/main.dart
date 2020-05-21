@@ -9,6 +9,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String status = 'none';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -25,14 +27,23 @@ class _MyAppState extends State<MyApp> {
                   GdprDialog.instance
                       .showDialog('pub-2111344032223404', 'https://plus1s.com/privacy-policy/', isForTest: true, testDeviceId: '')
                       .then((onValue) {
-                    print('result === $onValue');
+                    setState(() => status = 'dialog result == $onValue');
                   });
                 },
               ),
               RaisedButton(
                 child: Text('set consent to unknown'),
-                onPressed: () => GdprDialog.instance.setConsentToUnknown(),
+                onPressed: () => GdprDialog.instance
+                    .setConsentToUnknown()
+                    .then((value) => setState(() => status = 'consent status set to unknown')),
               ),
+              RaisedButton(
+                child: Text('get consent status'),
+                onPressed: () =>
+                    GdprDialog.instance.getConsentStatus().then((value) => setState(() => status = 'consent status == $value')),
+              ),
+              Container(height: 50),
+              Text(status),
             ],
           ),
         ),

@@ -9,7 +9,7 @@ class GdprDialog {
 
   // Show dialog with asking for get users info for add
   Future<bool> showDialog(String publisherId, String privacyUrl, {bool isForTest = false, String testDeviceId = ''}) {
-    return _channel.invokeMethod("gdpr.activate", <String, dynamic>{
+    return _channel.invokeMethod('gdpr.activate', <String, dynamic>{
       'publisherId': publisherId,
       'privacyUrl': privacyUrl,
       'isForTest': isForTest,
@@ -19,6 +19,11 @@ class GdprDialog {
 
   // Set consent status to UNKNOWN
   Future<bool> setConsentToUnknown() {
-    return _channel.invokeMethod("gdpr.setUnknown", []);
+    return _channel.invokeMethod('gdpr.setUnknown', []);
+  }
+
+  // Get consent status
+  Future<String> getConsentStatus() {
+    return _channel.invokeMethod('gdpr.getConsentStatus', []);
   }
 }
