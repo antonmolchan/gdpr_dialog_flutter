@@ -31,7 +31,7 @@ GdprDialog.instance.setConsentToUnknown();
 ```
 
 
-#### One more method getConsentStatus() that return consent status
+#### Method getConsentStatus() that return consent status
 
 ### Usage
 
@@ -43,3 +43,15 @@ It will return string of consent status:
 - PERSONALIZED
 - NON_PERSONALIZED
 - UNKNOWN
+
+#### One more method isRequestLocationInEea() that return is user in Eea location
+
+### Usage
+
+```
+GdprDialog.instance.isRequestLocationInEea(String publisherId);
+```
+
+It will return bools:
+- true = the user is located in the Eea
+- false = the user is not located in the Eea

@@ -26,6 +26,12 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         case "gdpr.getConsentStatus":
          self.getConsentStatus(result: result);
         
+        case "gdpr.requestLocation":
+            let arg = call.arguments as? NSDictionary
+            let pubId = arg!["publisherId"] as? String;
+            
+         self.isUserFromEea(result: result, publisherId: pubId!);
+        
       default:
         result(FlutterMethodNotImplemented)
       }
@@ -35,6 +41,21 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         PACConsentInformation.sharedInstance.consentStatus = .unknown;
          print("consent == UNKNOWN");
         result(true);
+    }
+    
+    private func isUserFromEea(result: @escaping FlutterResult,  publisherId: String) {
+        
+        PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
+            forPublisherIdentifiers: [publisherId])
+        {(_ error: Error?) -> Void in
+            if let error = error {
+                print("ERROR \(error)")
+                result(false)
+            } else {
+                result(PACConsentInformation.sharedInstance.isRequestLocationInEEAOrUnknown);
+            }
+        
+    }
     }
     
     private func getConsentStatus(result: @escaping FlutterResult) {

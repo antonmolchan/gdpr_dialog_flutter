@@ -151,6 +151,25 @@ public class GdprDialogPlugin implements MethodCallHandler {
     }catch (Exception ignored){}
   }
 
+  private void isUserFromEea(String publisherId, final Result result) {
+    String[] publisherIds = {publisherId};
+    final boolean[] isFromEurope = {false};
+    final ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
+    consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
+      @Override
+      public void onConsentInfoUpdated(ConsentStatus consentStatus) {
+        isFromEurope[0] = consentInformation.isRequestLocationInEeaOrUnknown();
+        try {
+          result.success(isFromEurope[0]);
+        }catch (Exception ignored){}
+      }
+      @Override
+      public void onFailedToUpdateConsentInfo(String reason) {
+
+      }
+    });
+  }
+
   @Override
   public void onMethodCall(MethodCall call, Result result) {
       this.result = result;
@@ -168,8 +187,12 @@ public class GdprDialogPlugin implements MethodCallHandler {
       setConsentToUnknown();
     } else if (call.method.equals("gdpr.getConsentStatus")) {
       getConsentStatus();
+    } else if (call.method.equals("gdpr.requestLocation")) {
+      String publisherId = call.argument("publisherId");
+      isUserFromEea(publisherId, result);
     } else {
       result.notImplemented();
+
     }
   }
 }

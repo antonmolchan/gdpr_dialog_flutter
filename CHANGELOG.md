@@ -38,3 +38,6 @@ Add function to set consent status as UNKNOWN
 
 ## 1.1.1
 Critical fix ios consent result status. Add new function getConsentStatus 
+
+## 1.1.2
+Add new function isRequestLocationInEea 

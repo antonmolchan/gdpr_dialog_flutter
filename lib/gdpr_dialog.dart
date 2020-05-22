@@ -26,4 +26,11 @@ class GdprDialog {
   Future<String> getConsentStatus() {
     return _channel.invokeMethod('gdpr.getConsentStatus', []);
   }
+
+  // Is user inEEA
+  Future<bool> isRequestLocationInEea(String publisherId) {
+    return _channel.invokeMethod('gdpr.requestLocation', <String, dynamic>{
+      'publisherId': publisherId,
+    });
+  }
 }
