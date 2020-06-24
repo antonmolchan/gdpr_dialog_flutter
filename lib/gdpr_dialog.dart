@@ -22,6 +22,11 @@ class GdprDialog {
     return _channel.invokeMethod('gdpr.setUnknown', []);
   }
 
+  // Set consent status to NON PERSONAL
+  Future<bool> setConsentToNonPersonal() {
+    return _channel.invokeMethod('gdpr.setConsentToNonPersonal', []);
+  }
+
   // Get consent status
   Future<String> getConsentStatus() {
     return _channel.invokeMethod('gdpr.getConsentStatus', []);

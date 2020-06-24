@@ -41,3 +41,6 @@ Critical fix ios consent result status. Add new function getConsentStatus
 
 ## 1.1.2
 Add new function isRequestLocationInEea 
+
+## 1.1.3
+Add new function set consent status as NON PERSONAL

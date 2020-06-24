@@ -39,6 +39,12 @@ class _MyAppState extends State<MyApp> {
                     .then((value) => setState(() => status = 'consent status set to unknown')),
               ),
               RaisedButton(
+                child: Text('set consent to non personal'),
+                onPressed: () => GdprDialog.instance
+                    .setConsentToNonPersonal()
+                    .then((value) => setState(() => status = 'consent status set to non personal')),
+              ),
+              RaisedButton(
                 child: Text('get consent status'),
                 onPressed: () =>
                     GdprDialog.instance.getConsentStatus().then((value) => setState(() => status = 'consent status == $value')),

@@ -23,6 +23,9 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
        case "gdpr.setUnknown":
         self.setConsentToUnknown(result: result);
         
+        case "gdpr.setConsentToNonPersonal":
+         self.setConsentToNonPersonal(result: result);
+        
         case "gdpr.getConsentStatus":
          self.getConsentStatus(result: result);
         
@@ -40,6 +43,12 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
     private func setConsentToUnknown(result: @escaping FlutterResult) {
         PACConsentInformation.sharedInstance.consentStatus = .unknown;
          print("consent == UNKNOWN");
+        result(true);
+    }
+    
+    private func setConsentToNonPersonal(result: @escaping FlutterResult) {
+        PACConsentInformation.sharedInstance.consentStatus = .nonPersonalized;
+         print("consent == NON_PERSONAL");
         result(true);
     }
     

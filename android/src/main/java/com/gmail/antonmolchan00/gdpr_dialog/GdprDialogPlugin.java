@@ -131,6 +131,14 @@ public class GdprDialogPlugin implements MethodCallHandler {
     }catch (Exception ignored){}
   }
 
+  private void setConsentToNonPersonal() {
+    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
+    consentInformation.setConsentStatus(ConsentStatus.NON_PERSONALIZED);
+    try {
+      this.result.success(true);
+    }catch (Exception ignored){}
+  }
+
   private void getConsentStatus() {
     String resultStatus = "ERROR";
     ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
@@ -190,9 +198,10 @@ public class GdprDialogPlugin implements MethodCallHandler {
     } else if (call.method.equals("gdpr.requestLocation")) {
       String publisherId = call.argument("publisherId");
       isUserFromEea(publisherId, result);
+    } else if (call.method.equals("gdpr.setConsentToNonPersonal")){
+      setConsentToNonPersonal();
     } else {
       result.notImplemented();
-
     }
   }
 }

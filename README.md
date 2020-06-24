@@ -30,6 +30,14 @@ In iOS, if you call showDialog() a second time, it will be shown and the user ca
 GdprDialog.instance.setConsentToUnknown();
 ```
 
+#### The setConsentToNonPersonal method sets the consent status to NON_PERSONAL
+
+### Usage
+
+```
+GdprDialog.instance.setConsentToNonPersonal();
+```
+
 
 #### Method getConsentStatus() that return consent status
 
@@ -43,6 +51,7 @@ It will return string of consent status:
 - PERSONALIZED
 - NON_PERSONALIZED
 - UNKNOWN
+
 
 #### One more method isRequestLocationInEea() that return is user in Eea location
 

@@ -1,6 +1,6 @@
 name: gdpr_dialog
 description: Library for use GDPR dialog from user for personalized ads and non personalized ads.
-version: 1.1.2
+version: 1.1.3
 homepage: https://github.com/antonmolchan/gdpr_dialog_flutter
 
 environment:
