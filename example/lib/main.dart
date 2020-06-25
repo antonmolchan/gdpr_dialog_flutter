@@ -25,8 +25,7 @@ class _MyAppState extends State<MyApp> {
                 child: Text('show dialog'),
                 onPressed: () {
                   GdprDialog.instance
-                      .showDialog(
-                          'pub-2111344032223404', 'https://plus1s.com/privacy-policy/' /*, isForTest: true, testDeviceId: ''*/)
+                      .showDialog('pub-2111344032223404', 'https://plus1s.com/privacy-policy/', isForTest: true, testDeviceId: '')
                       .then((onValue) {
                     setState(() => status = 'dialog result == $onValue');
                   });
@@ -43,6 +42,12 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () => GdprDialog.instance
                     .setConsentToNonPersonal()
                     .then((value) => setState(() => status = 'consent status set to non personal')),
+              ),
+              RaisedButton(
+                child: Text('set consent to personal'),
+                onPressed: () => GdprDialog.instance
+                    .setConsentToPersonal()
+                    .then((value) => setState(() => status = 'consent status set to personal')),
               ),
               RaisedButton(
                 child: Text('get consent status'),

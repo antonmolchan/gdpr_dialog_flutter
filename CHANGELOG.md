@@ -44,3 +44,6 @@ Add new function isRequestLocationInEea
 
 ## 1.1.3
 Add new function set consent status as NON PERSONAL
+
+## 1.1.4
+Add new function set consent status as PERSONAL

@@ -38,6 +38,14 @@ GdprDialog.instance.setConsentToUnknown();
 GdprDialog.instance.setConsentToNonPersonal();
 ```
 
+#### The setConsentToPersonal method sets the consent status to PERSONAL
+
+### Usage
+
+```
+GdprDialog.instance.setConsentToPersonal();
+```
+
 
 #### Method getConsentStatus() that return consent status
 
