@@ -47,3 +47,6 @@ Add new function set consent status as NON PERSONAL
 
 ## 1.1.4
 Add new function set consent status as PERSONAL
+
+## 1.1.5
+Add LICENSE
