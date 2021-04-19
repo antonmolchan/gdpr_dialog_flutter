@@ -8,7 +8,8 @@ class GdprDialog {
   static final GdprDialog instance = GdprDialog._();
 
   // Show dialog with asking for get users info for add
-  Future<bool> showDialog(String publisherId, String privacyUrl, {bool isForTest = false, String testDeviceId = ''}) {
+  Future<dynamic> showDialog(String publisherId, String privacyUrl,
+      {bool isForTest = false, String testDeviceId = ''}) {
     return _channel.invokeMethod('gdpr.activate', <String, dynamic>{
       'publisherId': publisherId,
       'privacyUrl': privacyUrl,
@@ -18,27 +19,27 @@ class GdprDialog {
   }
 
   // Set consent status to UNKNOWN
-  Future<bool> setConsentToUnknown() {
+  Future<dynamic> setConsentToUnknown() {
     return _channel.invokeMethod('gdpr.setUnknown', []);
   }
 
   // Set consent status to NON PERSONAL
-  Future<bool> setConsentToNonPersonal() {
+  Future<dynamic> setConsentToNonPersonal() {
     return _channel.invokeMethod('gdpr.setConsentToNonPersonal', []);
   }
 
   // Set consent status to PERSONAL
-  Future<bool> setConsentToPersonal() {
+  Future<dynamic> setConsentToPersonal() {
     return _channel.invokeMethod('gdpr.setConsentToPersonal', []);
   }
 
   // Get consent status
-  Future<String> getConsentStatus() {
+  Future<dynamic> getConsentStatus() {
     return _channel.invokeMethod('gdpr.getConsentStatus', []);
   }
 
   // Is user inEEA
-  Future<bool> isRequestLocationInEea(String publisherId) {
+  Future<dynamic> isRequestLocationInEea(String publisherId) {
     return _channel.invokeMethod('gdpr.requestLocation', <String, dynamic>{
       'publisherId': publisherId,
     });

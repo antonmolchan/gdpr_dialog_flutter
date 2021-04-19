@@ -50,3 +50,6 @@ Add new function set consent status as PERSONAL
 
 ## 1.1.5
 Add LICENSE
+
+## 2.0.0
+Null safety
