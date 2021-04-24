@@ -53,3 +53,6 @@ Add LICENSE
 
 ## 2.0.0
 Null safety
+
+## 2.0.1
+Add types for returning value and add default values if invokeMethod will return null vavlue.

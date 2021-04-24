@@ -8,40 +8,40 @@ class GdprDialog {
   static final GdprDialog instance = GdprDialog._();
 
   // Show dialog with asking for get users info for add
-  Future<dynamic> showDialog(String publisherId, String privacyUrl,
-      {bool isForTest = false, String testDeviceId = ''}) {
-    return _channel.invokeMethod('gdpr.activate', <String, dynamic>{
-      'publisherId': publisherId,
-      'privacyUrl': privacyUrl,
-      'isForTest': isForTest,
-      'testDeviceId': testDeviceId,
-    });
+  Future<bool> showDialog(String publisherId, String privacyUrl,
+      {bool isForTest = false, String testDeviceId = ''}) async {
+    return await _channel.invokeMethod('gdpr.activate', <String, dynamic>{
+          'publisherId': publisherId,
+          'privacyUrl': privacyUrl,
+          'isForTest': isForTest,
+          'testDeviceId': testDeviceId,
+        }) ??
+        false;
   }
 
   // Set consent status to UNKNOWN
-  Future<dynamic> setConsentToUnknown() {
-    return _channel.invokeMethod('gdpr.setUnknown', []);
+  Future<bool> setConsentToUnknown() async {
+    return await _channel.invokeMethod('gdpr.setUnknown', []) ?? false;
   }
 
   // Set consent status to NON PERSONAL
-  Future<dynamic> setConsentToNonPersonal() {
-    return _channel.invokeMethod('gdpr.setConsentToNonPersonal', []);
+  Future<bool> setConsentToNonPersonal() async {
+    return await _channel.invokeMethod('gdpr.setConsentToNonPersonal', []) ?? false;
   }
 
   // Set consent status to PERSONAL
-  Future<dynamic> setConsentToPersonal() {
-    return _channel.invokeMethod('gdpr.setConsentToPersonal', []);
+  Future<bool> setConsentToPersonal() async {
+    return await _channel.invokeMethod('gdpr.setConsentToPersonal', []) ?? false;
   }
 
   // Get consent status
-  Future<dynamic> getConsentStatus() {
-    return _channel.invokeMethod('gdpr.getConsentStatus', []);
+  Future<String> getConsentStatus() async {
+    final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
+    return result;
   }
 
   // Is user inEEA
-  Future<dynamic> isRequestLocationInEea(String publisherId) {
-    return _channel.invokeMethod('gdpr.requestLocation', <String, dynamic>{
-      'publisherId': publisherId,
-    });
+  Future<bool> isRequestLocationInEea(String publisherId) async {
+    return await _channel.invokeMethod('gdpr.requestLocation', <String, dynamic>{'publisherId': publisherId}) ?? false;
   }
 }
