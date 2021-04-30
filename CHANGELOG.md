@@ -56,3 +56,8 @@ Null safety
 
 ## 2.0.1
 Add types for returning value and add default values if invokeMethod will return null vavlue.
+
+## 2.1.0
+Add possibility to customize the dialog
+Add translation of the dialog
+Add possibility to manually choose the language of the dialog
