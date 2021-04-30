@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gdpr_dialog/gdpr_dialog.dart';
+import 'package:gdpr_dialog/dialog_style.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,6 +10,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final String _publisherId = 'pub-2111344032223404';
+  final String _privacyPolicyUrl = 'https://plus1s.com/privacy-policy/';
   String status = 'none';
 
   @override
@@ -25,10 +28,47 @@ class _MyAppState extends State<MyApp> {
                 child: Text('show dialog'),
                 onPressed: () {
                   GdprDialog.instance
-                      .showDialog('pub-2111344032223404', 'https://plus1s.com/privacy-policy/',
+                      .showDialog(_publisherId, _privacyPolicyUrl,
                           isForTest: true, testDeviceId: '')
                       .then((onValue) {
-                    setState(() => status = 'dialog result == $onValue');
+                    setState(() => status = 'dialog result == $onValue \n\nSet consent to unknown to show the dialog again');
+                  });
+                },
+              ),
+              ElevatedButton(
+                child: Text('show styled dialog'),
+                onPressed: () {
+                  GdprDialog.instance
+                      .showDialog(_publisherId, _privacyPolicyUrl,
+                    isForTest: true,
+                    testDeviceId: '',
+                    style: GdprDialogStyle(
+                        backgroundColor: Colors.black87,
+                        dialogBorderRadius: 16,
+                        primaryTextColor: Colors.white,
+                        secondaryTextColor: Colors.grey[300],
+                        buttonColor: Colors.deepOrangeAccent,
+                        buttonTextColor: Colors.white,
+                        linkColor: Colors.deepOrangeAccent,
+                        buttonBorderRadius: 8,
+                        buttonBorderSize: 0,
+                        buttonBorderColor: null
+                    ),
+                  ).then((onValue) {
+                    setState(() => status = 'dialog result == $onValue \n\nSet consent to unknown to show the dialog again');
+                  });
+                },
+              ),
+              ElevatedButton(
+                child: Text('show it dialog'),
+                onPressed: () {
+                  GdprDialog.instance
+                      .showDialog(_publisherId, _privacyPolicyUrl,
+                      isForTest: true,
+                      testDeviceId: '',
+                      languageCode: 'it',
+                  ).then((onValue) {
+                    setState(() => status = 'dialog result == $onValue \n\nSet consent to unknown to show the dialog again');
                   });
                 },
               ),
@@ -63,7 +103,7 @@ class _MyAppState extends State<MyApp> {
                     .then((value) => setState(() => status = 'is user from Eea == $value')),
               ),
               Container(height: 50),
-              Text(status),
+              Text(status, textAlign: TextAlign.center,),
             ],
           ),
         ),
