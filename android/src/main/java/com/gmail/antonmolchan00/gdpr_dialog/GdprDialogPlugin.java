@@ -12,6 +12,9 @@ import com.google.ads.consent.ConsentInfoUpdateListener;
 import com.google.ads.consent.ConsentInformation;
 import com.google.ads.consent.ConsentStatus;
 import com.google.ads.consent.DebugGeography;
+import com.google.ads.consent.FormStyle;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,7 +33,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
   private Result result;
   private ConsentForm form;
 
-  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest, String testDeviceId) {
+  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest, String testDeviceId, final FormStyle style, final String languageCode) {
     ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
     if (isForTest) {
       ConsentInformation.getInstance(activity).setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
@@ -49,7 +52,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
             break;
           case UNKNOWN:
             if (ConsentInformation.getInstance(activity.getBaseContext()).isRequestLocationInEeaOrUnknown())
-              requestConsent(privacyUrl);
+              requestConsent(privacyUrl, style, languageCode);
             else
               returnResult(true);
             break;
@@ -69,7 +72,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
     }catch (Exception ignored){}
   }
 
-  private void requestConsent(String url) {
+  private void requestConsent(String url, FormStyle style, String languageCode) {
     URL privacyUrl = null;
     try {
       privacyUrl = new URL(url);
@@ -108,7 +111,7 @@ public class GdprDialogPlugin implements MethodCallHandler {
             .withPersonalizedAdsOption()
             .withNonPersonalizedAdsOption()
             .build();
-    form.load();
+    form.load(style, languageCode);
   }
 
   private GdprDialogPlugin(Activity activity, MethodChannel channel) {
@@ -186,6 +189,32 @@ public class GdprDialogPlugin implements MethodCallHandler {
     });
   }
 
+  @NotNull
+  private FormStyle getStyle(@NotNull MethodCall call){
+    FormStyle formStyle = new FormStyle();
+    String backgroundColor = call.argument("backgroundColor");
+    formStyle.setBackgroundColor(backgroundColor);
+    Integer dialogBorderRadius = call.argument("dialogBorderRadius");
+    formStyle.setDialogBorderRadius(dialogBorderRadius);
+    String primaryTextColor = call.argument("primaryTextColor");
+    formStyle.setPrimaryTextColor(primaryTextColor);
+    String secondaryTextColor = call.argument("secondaryTextColor");
+    formStyle.setSecondaryTextColor(secondaryTextColor);
+    String linkColor = call.argument("linkColor");
+    formStyle.setLinkColor(linkColor);
+    String buttonColor = call.argument("buttonColor");
+    formStyle.setButtonColor(buttonColor);
+    String buttonTextColor = call.argument("buttonTextColor");
+    formStyle.setButtonTextColor(buttonTextColor);
+    Integer buttonBorderRadius = call.argument("buttonBorderRadius");
+    formStyle.setButtonBorderRadius(buttonBorderRadius);
+    Integer buttonBorderSize = call.argument("buttonBorderSize");
+    formStyle.setButtonBorderSize(buttonBorderSize);
+    String buttonBorderColor = call.argument("buttonBorderColor");
+    formStyle.setButtonBorderColor(buttonBorderColor);
+    return formStyle;
+  }
+
   @Override
   public void onMethodCall(MethodCall call, Result result) {
       this.result = result;
@@ -197,7 +226,10 @@ public class GdprDialogPlugin implements MethodCallHandler {
       try { isForTest = call.argument("isForTest");
       }catch (Exception ignored){}
 
-      checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId);
+      FormStyle formStyle = getStyle(call);
+      String languageCode = call.argument("languageCode");
+
+      checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId, formStyle, languageCode);
 
     } else if (call.method.equals("gdpr.setUnknown")){
       setConsentToUnknown();
