@@ -14,8 +14,8 @@ A new Flutter project.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
+  s.resources = 'Resources/**/**'
   s.dependency 'Flutter'
-  s.dependency 'PersonalizedAdConsent'
   s.ios.deployment_target = '8.0'
 end
 

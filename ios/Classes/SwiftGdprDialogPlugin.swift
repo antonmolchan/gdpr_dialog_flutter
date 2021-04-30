@@ -1,8 +1,7 @@
 import Flutter
 import UIKit
-import PersonalizedAdConsent
 
-//import PersonalizedAdConsent гугловская библиотека
+//import PersonalizedAdConsent //гугловская библиотека
 public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -15,10 +14,12 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
       switch (call.method) {
       case "gdpr.activate":
         let arg = call.arguments as? NSDictionary
-        let pubId = arg!["publisherId"] as? String;
-        let url = arg!["privacyUrl"] as? String;
+        let pubId = arg!["publisherId"] as? String
+        let url = arg!["privacyUrl"] as? String
         
-        self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!)
+        let dialogStyle = buildDialogStyle(args: arg)
+        let languageCode = arg!["languageCode"] as? String
+        self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!, style: dialogStyle, languageCode: languageCode)
 
        case "gdpr.setUnknown":
         self.setConsentToUnknown(result: result);
@@ -93,16 +94,31 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         result(statusResult)
     }
 
-    private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String) {
+    private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String, style: EGADialogStyle, languageCode: String?) {
     
-            showConsent(publisherId: publisherId, privacyUrl: privacyUrl) { (bool) in
+            showConsent(publisherId: publisherId, privacyUrl: privacyUrl, style: style, languageCode: languageCode) { (bool) in
                 print("result IOS ++++++++  " , bool)
                 result(bool)
             };
 
     }
     
-    func showConsent(publisherId: String, privacyUrl: String, checkBool : @escaping(Bool) -> Void)
+    private func buildDialogStyle(args: NSDictionary?) -> EGADialogStyle {
+        let dialogStyle = EGADialogStyle()
+        dialogStyle.backgroundColor = args?["backgroundColor"] as? String
+        dialogStyle.dialogBorderRadius = (args?["dialogBorderRadius"] as? Int) ?? -1
+        dialogStyle.primaryTextColor = args?["primaryTextColor"] as? String
+        dialogStyle.secondaryTextColor = args?["secondaryTextColor"] as? String
+        dialogStyle.linkColor = args?["linkColor"] as? String
+        dialogStyle.buttonColor = args?["buttonColor"] as? String
+        dialogStyle.buttonTextColor = args?["buttonTextColor"] as? String
+        dialogStyle.buttonBorderRadius = (args?["buttonBorderRadius"] as? Int) ?? -1
+        dialogStyle.buttonBorderSize = (args?["buttonBorderSize"] as? Int) ?? -1
+        dialogStyle.buttonBorderColor = args?["buttonBorderColor"] as? String
+        return dialogStyle
+    }
+    
+    func showConsent(publisherId: String, privacyUrl: String, style: EGADialogStyle, languageCode: String?, checkBool : @escaping(Bool) -> Void)
     {
     
         PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
@@ -119,8 +135,8 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
                 let form = PACConsentForm(applicationPrivacyPolicyURL: url)!
                     form.shouldOfferPersonalizedAds = true
                         form.shouldOfferNonPersonalizedAds = true
-                
-                form.load { (Error) in
+                    
+                    form.load(with: style, languageCode: languageCode) { (Error) in
                     if Error != nil {
                         checkBool(false)
                         print("ERROR === 1 \(String(describing: Error))")
