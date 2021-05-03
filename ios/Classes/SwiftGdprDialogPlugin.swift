@@ -17,8 +17,10 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         let arg = call.arguments as? NSDictionary
         let pubId = arg!["publisherId"] as? String;
         let url = arg!["privacyUrl"] as? String;
+        let isTest = arg!["isForTest"] as? Bool;
+        let deviceId = arg!["testDeviceId"] as? String;
         
-        self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!)
+        self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!, isForTest: isTest!, testDeviceId: deviceId!)
 
        case "gdpr.setUnknown":
         self.setConsentToUnknown(result: result);
@@ -93,8 +95,13 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         result(statusResult)
     }
 
-    private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String) {
-    
+     private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String , isForTest: Bool, testDeviceId: String) {
+            if isForTest {
+               // Geography appears as in EEA for debug devices.
+               PACConsentInformation.sharedInstance.debugIdentifiers = [ testDeviceId ];
+               PACConsentInformation.sharedInstance.debugGeography = PACDebugGeography.EEA;
+            }
+            
             showConsent(publisherId: publisherId, privacyUrl: privacyUrl) { (bool) in
                 print("result IOS ++++++++  " , bool)
                 result(bool)
