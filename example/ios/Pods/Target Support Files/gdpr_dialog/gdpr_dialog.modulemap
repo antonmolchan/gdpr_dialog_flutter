@@ -1,0 +1,6 @@
+framework module gdpr_dialog {
+  umbrella header "gdpr_dialog-umbrella.h"
+
+  export *
+  module * { export * }
+}

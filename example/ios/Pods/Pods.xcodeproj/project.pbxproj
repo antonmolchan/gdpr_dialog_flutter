@@ -1,0 +1,1132 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Flutter;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		005F41614E76943CCA4F4341CBD92902 /* PACConsentForm.h in Headers */ = {isa = PBXBuildFile; fileRef = EE3588266CC717689C24D24BE063A4C7 /* PACConsentForm.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		089452F7CB4A6548AD513F2C53290FD0 /* PACConsentForm.m in Sources */ = {isa = PBXBuildFile; fileRef = E10EAB1644E9485F11EE914620B38739 /* PACConsentForm.m */; };
+		0DF4638700B83C9E02A53678CCCE1FB3 /* PACView.h in Headers */ = {isa = PBXBuildFile; fileRef = F0A0A16587C64381DDC07240F13C0F3E /* PACView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		172D2B9DB661103657E6415461012C90 /* PACPersonalizedAdConsent.h in Headers */ = {isa = PBXBuildFile; fileRef = F0647DC71BB185374A7C34B161B64BEE /* PACPersonalizedAdConsent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C69A27B5F104560BB27A929F007B418 /* consentform_es.html in Resources */ = {isa = PBXBuildFile; fileRef = 49BD20ED22F6F92ECF0CEBD1D50DF01E /* consentform_es.html */; };
+		2146A9E12929C2235941E8B7B424ABC8 /* PACError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426943FB105C883A66E0B47701E08F1 /* PACError.m */; };
+		2C2C3A4937D05F72CC8F90EC7750072C /* consentform_nl.html in Resources */ = {isa = PBXBuildFile; fileRef = D0C8B68DB2B7FD9D533E0C400C59EC80 /* consentform_nl.html */; };
+		35DDBB338F86B4736C39B35DBC086A58 /* GdprDialogPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = FD1826C2DF63B81A267C9F1585C094CA /* GdprDialogPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		364F356B3E7E5DD040CCC142EBF18956 /* consentform_fr.html in Resources */ = {isa = PBXBuildFile; fileRef = 96E0EE643F1BD8DE81A01B59E23AC351 /* consentform_fr.html */; };
+		3FB7BD191BD1F39C0ADB4DF46455427C /* consentform.html in Resources */ = {isa = PBXBuildFile; fileRef = 7BDAA469B4558C55B5ABCBA4EAD83019 /* consentform.html */; };
+		4249990EB0F777AC8BBD0CDE2011D3D7 /* EGADialogStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = BCBC827E038E0E9360FDD72DB4739C16 /* EGADialogStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		469AB07C83C44F54C1F9114741B0DF40 /* consentform_it.html in Resources */ = {isa = PBXBuildFile; fileRef = 3DCA52AE2CD30EB2FD281BF9047B479B /* consentform_it.html */; };
+		5550563EC960A1044365F243531B51ED /* PACPersonalizedAdConsent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4718953E2A844CA1967B4FD7A0340B20 /* PACPersonalizedAdConsent.m */; };
+		567315D2DCDF4A3207C1A1E3549D167F /* PACView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E27ED39FE20E45A325207675CEF66B6 /* PACView.m */; };
+		56B8C5E4EFD18DF3807E4F819F62A840 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C932BD54DBB963102A89E0F9E3948 /* Pods-Runner-dummy.m */; };
+		58EFCAAF1B6F0FB1BB4F0AB36871F9BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		61D4F093EE5B8400C9E59969C4899637 /* gdpr_dialog-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DE9A89E8A6502A6D4E309890314331F5 /* gdpr_dialog-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6596ACAACD380EC6704625CFAA91B178 /* consentform_ru.html in Resources */ = {isa = PBXBuildFile; fileRef = 4B39614EECF3067AC80B26B84FC05B05 /* consentform_ru.html */; };
+		73E5E2E5055C03FAA7CC635CB722F0AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		775BB5EF6E65CF8E33BC5F18A2571A76 /* EGAStyler.h in Headers */ = {isa = PBXBuildFile; fileRef = 7455BA2DDEB90235E2EEEA84CEE5FB2D /* EGAStyler.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		788977BB14F161B89EC956E032A3ABE8 /* EGADialogStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = D0082E2B90BAF89F9BA52498C52E77B6 /* EGADialogStyle.m */; };
+		85EB0886FDE943A2061105D55115EDBA /* consentform_de.html in Resources */ = {isa = PBXBuildFile; fileRef = 80A901C857A493D5E1835AC7093FD5EC /* consentform_de.html */; };
+		940FFEEC9906E2D2E49E93DD98F1F48B /* consentform_zh.html in Resources */ = {isa = PBXBuildFile; fileRef = 232958906D35ECF99D1BCC4B937FDD78 /* consentform_zh.html */; };
+		987364A912692DE4C40D919118916881 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = C1B6F34A7B67477FEB9B48E92C0D90D2 /* style.css */; };
+		9AC77EE49A2D37F1803EA79732948948 /* consentform_pt.html in Resources */ = {isa = PBXBuildFile; fileRef = 46267ADA8CE91D913882D7FF4BD5BF7B /* consentform_pt.html */; };
+		A406E7358101E6562EDECF61FC4452DB /* EGAHtmlReader.h in Headers */ = {isa = PBXBuildFile; fileRef = C53BF2A4E2487909F5D84F14D3D8855F /* EGAHtmlReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C32C38820CDBC032F5BCDC60937D541A /* consentform_ko.html in Resources */ = {isa = PBXBuildFile; fileRef = 0E18F6263FDF14803D25C6AC2C21722C /* consentform_ko.html */; };
+		DAD6057850939F322E3F6E9C05B2CB1C /* EGAHtmlReader.m in Sources */ = {isa = PBXBuildFile; fileRef = BDF6C54C3F35DE127E2790DCCE052F93 /* EGAHtmlReader.m */; };
+		DF7DC6F6859CAF3DC0AEAB3AF98671C6 /* SwiftGdprDialogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020E7B351489891C432E6B41D52A0F4D /* SwiftGdprDialogPlugin.swift */; };
+		E24263FDF822D4A3D776306C396E6660 /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 96BF45FBE2BC9AD7B2D7E56D01B5EE46 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E3C21337926905360969E64EE7BA9C00 /* PACError.h in Headers */ = {isa = PBXBuildFile; fileRef = A4CD88D2E000B4EC8717E6AD834008F2 /* PACError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E4A3DAC525E6FA981E158DD31D35A0D2 /* gdpr_dialog-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF03B0D8C567CC130673421B591624CF /* gdpr_dialog-dummy.m */; };
+		F486B19B906A41A1F5779E8DC45A643C /* consentform_ja.html in Resources */ = {isa = PBXBuildFile; fileRef = B36920922424FBC5CDF5CB0AEAFF2D99 /* consentform_ja.html */; };
+		F91CC10451FDA7916F0F33A918D80352 /* EGAStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4BBCB9A72A93645DF67CE97847E828 /* EGAStyler.m */; };
+		FA3895A7AFCA3327D2C99AD007F8D442 /* GdprDialogPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F8B6C413FFCD38EC23F924E9213971F /* GdprDialogPlugin.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3788E816560FE2EC607B978F861DB025 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF5595EEFEF8CA5E3888672450A76F15;
+			remoteInfo = gdpr_dialog;
+		};
+		967FAC4554C55992DADDA8B10190B458 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		D42A2E9F7F9814EE86C54276AD4CF674 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		020E7B351489891C432E6B41D52A0F4D /* SwiftGdprDialogPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftGdprDialogPlugin.swift; path = ../../../../../../../ios/Classes/SwiftGdprDialogPlugin.swift; sourceTree = "<group>"; };
+		0426943FB105C883A66E0B47701E08F1 /* PACError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACError.m; path = ../../../../../../../ios/Classes/PACError.m; sourceTree = "<group>"; };
+		0E18F6263FDF14803D25C6AC2C21722C /* consentform_ko.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_ko.html; path = ../../../../../../../ios/Resources/consentform_ko.html; sourceTree = "<group>"; };
+		1F57DA2EACD5FD0A0EB6243E0184E353 /* gdpr_dialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = gdpr_dialog.framework; path = gdpr_dialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F8B6C413FFCD38EC23F924E9213971F /* GdprDialogPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GdprDialogPlugin.m; path = ../../../../../../../ios/Classes/GdprDialogPlugin.m; sourceTree = "<group>"; };
+		232958906D35ECF99D1BCC4B937FDD78 /* consentform_zh.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_zh.html; path = ../../../../../../../ios/Resources/consentform_zh.html; sourceTree = "<group>"; };
+		28641444284F06EC3180FCC9DEE19C5C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../../../../../../LICENSE; sourceTree = "<group>"; };
+		317C26B9A7CEDD34ADE8F37FAAB7AC20 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
+		350277D1C4F134C6ADD07E28AB354613 /* gdpr_dialog.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = gdpr_dialog.modulemap; sourceTree = "<group>"; };
+		3DCA52AE2CD30EB2FD281BF9047B479B /* consentform_it.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_it.html; path = ../../../../../../../ios/Resources/consentform_it.html; sourceTree = "<group>"; };
+		46267ADA8CE91D913882D7FF4BD5BF7B /* consentform_pt.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_pt.html; path = ../../../../../../../ios/Resources/consentform_pt.html; sourceTree = "<group>"; };
+		4718953E2A844CA1967B4FD7A0340B20 /* PACPersonalizedAdConsent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACPersonalizedAdConsent.m; path = ../../../../../../../ios/Classes/PACPersonalizedAdConsent.m; sourceTree = "<group>"; };
+		49BD20ED22F6F92ECF0CEBD1D50DF01E /* consentform_es.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_es.html; path = ../../../../../../../ios/Resources/consentform_es.html; sourceTree = "<group>"; };
+		4B39614EECF3067AC80B26B84FC05B05 /* consentform_ru.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_ru.html; path = ../../../../../../../ios/Resources/consentform_ru.html; sourceTree = "<group>"; };
+		51825CD8F0558EFA53D9510F0E5BFA16 /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
+		5201E0CE0D684223D345BDE9F0E777AA /* Flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Flutter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		540C2BD26F46F7838FC68960450178F8 /* gdpr_dialog-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "gdpr_dialog-Info.plist"; sourceTree = "<group>"; };
+		669E8F25E1897672BDB80B7EB784DA24 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Runner.framework; path = "Pods-Runner.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6845CD8E58C6F4319AF893A64E6F0A40 /* gdpr_dialog-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "gdpr_dialog-prefix.pch"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7455BA2DDEB90235E2EEEA84CEE5FB2D /* EGAStyler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EGAStyler.h; path = ../../../../../../../ios/Classes/EGAStyler.h; sourceTree = "<group>"; };
+		7B3C932BD54DBB963102A89E0F9E3948 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
+		7BDAA469B4558C55B5ABCBA4EAD83019 /* consentform.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform.html; path = ../../../../../../../ios/Resources/consentform.html; sourceTree = "<group>"; };
+		7C44984D693C85278104FF40048ADBC2 /* gdpr_dialog.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = gdpr_dialog.podspec; path = ../../../../../../ios/gdpr_dialog.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		80A901C857A493D5E1835AC7093FD5EC /* consentform_de.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_de.html; path = ../../../../../../../ios/Resources/consentform_de.html; sourceTree = "<group>"; };
+		8A4BBCB9A72A93645DF67CE97847E828 /* EGAStyler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EGAStyler.m; path = ../../../../../../../ios/Classes/EGAStyler.m; sourceTree = "<group>"; };
+		8E27ED39FE20E45A325207675CEF66B6 /* PACView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACView.m; path = ../../../../../../../ios/Classes/PACView.m; sourceTree = "<group>"; };
+		96BF45FBE2BC9AD7B2D7E56D01B5EE46 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
+		96E0EE643F1BD8DE81A01B59E23AC351 /* consentform_fr.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_fr.html; path = ../../../../../../../ios/Resources/consentform_fr.html; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F79F8269DC34AC56BB3D1D9652C0D86 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		A4CD88D2E000B4EC8717E6AD834008F2 /* PACError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACError.h; path = ../../../../../../../ios/Classes/PACError.h; sourceTree = "<group>"; };
+		A64A8FE26B972C74E2AE9C8DDDB76F3E /* Flutter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.release.xcconfig; sourceTree = "<group>"; };
+		AF03B0D8C567CC130673421B591624CF /* gdpr_dialog-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "gdpr_dialog-dummy.m"; sourceTree = "<group>"; };
+		B36920922424FBC5CDF5CB0AEAFF2D99 /* consentform_ja.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_ja.html; path = ../../../../../../../ios/Resources/consentform_ja.html; sourceTree = "<group>"; };
+		B94B34C14B295F0BEA2A92C309BE5061 /* Flutter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.debug.xcconfig; sourceTree = "<group>"; };
+		BCBC827E038E0E9360FDD72DB4739C16 /* EGADialogStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EGADialogStyle.h; path = ../../../../../../../ios/Classes/EGADialogStyle.h; sourceTree = "<group>"; };
+		BDF6C54C3F35DE127E2790DCCE052F93 /* EGAHtmlReader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EGAHtmlReader.m; path = ../../../../../../../ios/Classes/EGAHtmlReader.m; sourceTree = "<group>"; };
+		C1B6F34A7B67477FEB9B48E92C0D90D2 /* style.css */ = {isa = PBXFileReference; includeInIndex = 1; name = style.css; path = ../../../../../../../ios/Resources/style.css; sourceTree = "<group>"; };
+		C53BF2A4E2487909F5D84F14D3D8855F /* EGAHtmlReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EGAHtmlReader.h; path = ../../../../../../../ios/Classes/EGAHtmlReader.h; sourceTree = "<group>"; };
+		C6EA98402A94995D022D330B64B5203D /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CDAECCF4B5E08124ED410F09FD5A5DF9 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		D0082E2B90BAF89F9BA52498C52E77B6 /* EGADialogStyle.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EGADialogStyle.m; path = ../../../../../../../ios/Classes/EGADialogStyle.m; sourceTree = "<group>"; };
+		D087CA456F1C611DD2CECF880EA0B656 /* gdpr_dialog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = gdpr_dialog.debug.xcconfig; sourceTree = "<group>"; };
+		D0C8B68DB2B7FD9D533E0C400C59EC80 /* consentform_nl.html */ = {isa = PBXFileReference; includeInIndex = 1; name = consentform_nl.html; path = ../../../../../../../ios/Resources/consentform_nl.html; sourceTree = "<group>"; };
+		D2E39580620F18324EFA99188F9DEF70 /* gdpr_dialog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = gdpr_dialog.release.xcconfig; sourceTree = "<group>"; };
+		D2FA70CA298C392CB8332ADEEDD1CE85 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		D9F2B4CB813B4BDC4D164C6E0868930A /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
+		DE9A89E8A6502A6D4E309890314331F5 /* gdpr_dialog-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "gdpr_dialog-umbrella.h"; sourceTree = "<group>"; };
+		E10EAB1644E9485F11EE914620B38739 /* PACConsentForm.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PACConsentForm.m; path = ../../../../../../../ios/Classes/PACConsentForm.m; sourceTree = "<group>"; };
+		EE3588266CC717689C24D24BE063A4C7 /* PACConsentForm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACConsentForm.h; path = ../../../../../../../ios/Classes/PACConsentForm.h; sourceTree = "<group>"; };
+		F0647DC71BB185374A7C34B161B64BEE /* PACPersonalizedAdConsent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACPersonalizedAdConsent.h; path = ../../../../../../../ios/Classes/PACPersonalizedAdConsent.h; sourceTree = "<group>"; };
+		F0A0A16587C64381DDC07240F13C0F3E /* PACView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PACView.h; path = ../../../../../../../ios/Classes/PACView.h; sourceTree = "<group>"; };
+		F49C32B3B8CF59AB437BFD7314674868 /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
+		FD1826C2DF63B81A267C9F1585C094CA /* GdprDialogPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GdprDialogPlugin.h; path = ../../../../../../../ios/Classes/GdprDialogPlugin.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B4F4BBF46582E74583CEE6B2E2B0E9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58EFCAAF1B6F0FB1BB4F0AB36871F9BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1D3AB67C0648CA2D9EC5C3A136A33A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73E5E2E5055C03FAA7CC635CB722F0AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1313D8B97DCB9B4C189BAD0CE4468345 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				9823AF76ED32E8201492AC27C67955E7 /* gdpr_dialog */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		1F9C2CABEC9781C01B49FC2AE9210E22 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				57428C1F6029BC105AF67391BC738415 /* Pod */,
+				D2F9E5763D0AE98867E827CD38805F94 /* Support Files */,
+			);
+			name = Flutter;
+			path = ../Flutter;
+			sourceTree = "<group>";
+		};
+		2D045A51AE1A0E750578F24E6167AB68 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				1313D8B97DCB9B4C189BAD0CE4468345 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		4E75E8D6D4D53DBE7B87502B6E1986F2 /* example */ = {
+			isa = PBXGroup;
+			children = (
+				F2D4092CEC0035A8D1F3EAD6E84D23B3 /* ios */,
+			);
+			name = example;
+			path = example;
+			sourceTree = "<group>";
+		};
+		57428C1F6029BC105AF67391BC738415 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				5201E0CE0D684223D345BDE9F0E777AA /* Flutter.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		65AA6DE0043BBEFFBCF234E2CB7128A5 /* gdpr_dialog */ = {
+			isa = PBXGroup;
+			children = (
+				E5A65B8AC417B9CDB9774C8EBB86D272 /* .. */,
+				84784E7799B192884BDCB1A52CBF1462 /* Pod */,
+				7447CCFB8FFF72B6B5257121466C5E2B /* Support Files */,
+			);
+			name = gdpr_dialog;
+			path = ../.symlinks/plugins/gdpr_dialog/ios;
+			sourceTree = "<group>";
+		};
+		73131998BDFE9A4D39A19F75377ABAA7 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1F9C2CABEC9781C01B49FC2AE9210E22 /* Flutter */,
+				65AA6DE0043BBEFFBCF234E2CB7128A5 /* gdpr_dialog */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		7447CCFB8FFF72B6B5257121466C5E2B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				350277D1C4F134C6ADD07E28AB354613 /* gdpr_dialog.modulemap */,
+				AF03B0D8C567CC130673421B591624CF /* gdpr_dialog-dummy.m */,
+				540C2BD26F46F7838FC68960450178F8 /* gdpr_dialog-Info.plist */,
+				6845CD8E58C6F4319AF893A64E6F0A40 /* gdpr_dialog-prefix.pch */,
+				DE9A89E8A6502A6D4E309890314331F5 /* gdpr_dialog-umbrella.h */,
+				D087CA456F1C611DD2CECF880EA0B656 /* gdpr_dialog.debug.xcconfig */,
+				D2E39580620F18324EFA99188F9DEF70 /* gdpr_dialog.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/gdpr_dialog";
+			sourceTree = "<group>";
+		};
+		791C6E4B424AF06279F8918FA67B8ED6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B0D67477903E1EB8D6A9F9AF51BC5CC /* Pods-Runner */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7B0D67477903E1EB8D6A9F9AF51BC5CC /* Pods-Runner */ = {
+			isa = PBXGroup;
+			children = (
+				F49C32B3B8CF59AB437BFD7314674868 /* Pods-Runner.modulemap */,
+				C6EA98402A94995D022D330B64B5203D /* Pods-Runner-acknowledgements.markdown */,
+				D9F2B4CB813B4BDC4D164C6E0868930A /* Pods-Runner-acknowledgements.plist */,
+				7B3C932BD54DBB963102A89E0F9E3948 /* Pods-Runner-dummy.m */,
+				317C26B9A7CEDD34ADE8F37FAAB7AC20 /* Pods-Runner-frameworks.sh */,
+				51825CD8F0558EFA53D9510F0E5BFA16 /* Pods-Runner-Info.plist */,
+				96BF45FBE2BC9AD7B2D7E56D01B5EE46 /* Pods-Runner-umbrella.h */,
+				CDAECCF4B5E08124ED410F09FD5A5DF9 /* Pods-Runner.debug.xcconfig */,
+				9F79F8269DC34AC56BB3D1D9652C0D86 /* Pods-Runner.profile.xcconfig */,
+				D2FA70CA298C392CB8332ADEEDD1CE85 /* Pods-Runner.release.xcconfig */,
+			);
+			name = "Pods-Runner";
+			path = "Target Support Files/Pods-Runner";
+			sourceTree = "<group>";
+		};
+		84784E7799B192884BDCB1A52CBF1462 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7C44984D693C85278104FF40048ADBC2 /* gdpr_dialog.podspec */,
+				28641444284F06EC3180FCC9DEE19C5C /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		9823AF76ED32E8201492AC27C67955E7 /* gdpr_dialog */ = {
+			isa = PBXGroup;
+			children = (
+				D0A94F5F23793468EE10B1990C09CED0 /* ios */,
+			);
+			name = gdpr_dialog;
+			path = gdpr_dialog;
+			sourceTree = "<group>";
+		};
+		990201A221F0E2D71373E55CCD22082F /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				4E75E8D6D4D53DBE7B87502B6E1986F2 /* example */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		AEFF3280FF9BDD631C1DDA59C13DE73A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F57DA2EACD5FD0A0EB6243E0184E353 /* gdpr_dialog.framework */,
+				669E8F25E1897672BDB80B7EB784DA24 /* Pods_Runner.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				73131998BDFE9A4D39A19F75377ABAA7 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				AEFF3280FF9BDD631C1DDA59C13DE73A /* Products */,
+				791C6E4B424AF06279F8918FA67B8ED6 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D0A94F5F23793468EE10B1990C09CED0 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				D8DF86CE76DEDE529CDCBAA878DE98E9 /* Classes */,
+				F28B19ECAD483D869E5336834727BF30 /* Resources */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D2F9E5763D0AE98867E827CD38805F94 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B94B34C14B295F0BEA2A92C309BE5061 /* Flutter.debug.xcconfig */,
+				A64A8FE26B972C74E2AE9C8DDDB76F3E /* Flutter.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Pods/Target Support Files/Flutter";
+			sourceTree = "<group>";
+		};
+		D8DF86CE76DEDE529CDCBAA878DE98E9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BCBC827E038E0E9360FDD72DB4739C16 /* EGADialogStyle.h */,
+				D0082E2B90BAF89F9BA52498C52E77B6 /* EGADialogStyle.m */,
+				C53BF2A4E2487909F5D84F14D3D8855F /* EGAHtmlReader.h */,
+				BDF6C54C3F35DE127E2790DCCE052F93 /* EGAHtmlReader.m */,
+				7455BA2DDEB90235E2EEEA84CEE5FB2D /* EGAStyler.h */,
+				8A4BBCB9A72A93645DF67CE97847E828 /* EGAStyler.m */,
+				FD1826C2DF63B81A267C9F1585C094CA /* GdprDialogPlugin.h */,
+				1F8B6C413FFCD38EC23F924E9213971F /* GdprDialogPlugin.m */,
+				EE3588266CC717689C24D24BE063A4C7 /* PACConsentForm.h */,
+				E10EAB1644E9485F11EE914620B38739 /* PACConsentForm.m */,
+				A4CD88D2E000B4EC8717E6AD834008F2 /* PACError.h */,
+				0426943FB105C883A66E0B47701E08F1 /* PACError.m */,
+				F0647DC71BB185374A7C34B161B64BEE /* PACPersonalizedAdConsent.h */,
+				4718953E2A844CA1967B4FD7A0340B20 /* PACPersonalizedAdConsent.m */,
+				F0A0A16587C64381DDC07240F13C0F3E /* PACView.h */,
+				8E27ED39FE20E45A325207675CEF66B6 /* PACView.m */,
+				020E7B351489891C432E6B41D52A0F4D /* SwiftGdprDialogPlugin.swift */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E5A65B8AC417B9CDB9774C8EBB86D272 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				990201A221F0E2D71373E55CCD22082F /* .. */,
+			);
+			name = ..;
+			path = ../../../../../../ios;
+			sourceTree = "<group>";
+		};
+		F28B19ECAD483D869E5336834727BF30 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7BDAA469B4558C55B5ABCBA4EAD83019 /* consentform.html */,
+				80A901C857A493D5E1835AC7093FD5EC /* consentform_de.html */,
+				49BD20ED22F6F92ECF0CEBD1D50DF01E /* consentform_es.html */,
+				96E0EE643F1BD8DE81A01B59E23AC351 /* consentform_fr.html */,
+				3DCA52AE2CD30EB2FD281BF9047B479B /* consentform_it.html */,
+				B36920922424FBC5CDF5CB0AEAFF2D99 /* consentform_ja.html */,
+				0E18F6263FDF14803D25C6AC2C21722C /* consentform_ko.html */,
+				D0C8B68DB2B7FD9D533E0C400C59EC80 /* consentform_nl.html */,
+				46267ADA8CE91D913882D7FF4BD5BF7B /* consentform_pt.html */,
+				4B39614EECF3067AC80B26B84FC05B05 /* consentform_ru.html */,
+				232958906D35ECF99D1BCC4B937FDD78 /* consentform_zh.html */,
+				C1B6F34A7B67477FEB9B48E92C0D90D2 /* style.css */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F2D4092CEC0035A8D1F3EAD6E84D23B3 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				2D045A51AE1A0E750578F24E6167AB68 /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		178B54E6E77D2090AA6F2E46EAD34E58 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4249990EB0F777AC8BBD0CDE2011D3D7 /* EGADialogStyle.h in Headers */,
+				A406E7358101E6562EDECF61FC4452DB /* EGAHtmlReader.h in Headers */,
+				775BB5EF6E65CF8E33BC5F18A2571A76 /* EGAStyler.h in Headers */,
+				61D4F093EE5B8400C9E59969C4899637 /* gdpr_dialog-umbrella.h in Headers */,
+				35DDBB338F86B4736C39B35DBC086A58 /* GdprDialogPlugin.h in Headers */,
+				005F41614E76943CCA4F4341CBD92902 /* PACConsentForm.h in Headers */,
+				E3C21337926905360969E64EE7BA9C00 /* PACError.h in Headers */,
+				172D2B9DB661103657E6415461012C90 /* PACPersonalizedAdConsent.h in Headers */,
+				0DF4638700B83C9E02A53678CCCE1FB3 /* PACView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F55D74450A3C0A4433B505FA0301CE1C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E24263FDF822D4A3D776306C396E6660 /* Pods-Runner-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8B74B458B450D74B75744B87BD747314 /* Pods-Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8A9C3FE75B0E98AB1D4FFBE543BC43E0 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
+			buildPhases = (
+				F55D74450A3C0A4433B505FA0301CE1C /* Headers */,
+				175D102422B7730E3D63F1C349F7FEDF /* Sources */,
+				6B4F4BBF46582E74583CEE6B2E2B0E9D /* Frameworks */,
+				80AFF8A98F84E36E7E08212C5CD83029 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				842DE324D560843613093A5CC0ABB129 /* PBXTargetDependency */,
+				D80AB61EDE0096775F08BC5144A76839 /* PBXTargetDependency */,
+			);
+			name = "Pods-Runner";
+			productName = "Pods-Runner";
+			productReference = 669E8F25E1897672BDB80B7EB784DA24 /* Pods_Runner.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BF5595EEFEF8CA5E3888672450A76F15 /* gdpr_dialog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C726DBD5E20FB395E5C1B284119B0BD5 /* Build configuration list for PBXNativeTarget "gdpr_dialog" */;
+			buildPhases = (
+				178B54E6E77D2090AA6F2E46EAD34E58 /* Headers */,
+				7A0D3E05B2B3743189352E61705B676B /* Sources */,
+				C1D3AB67C0648CA2D9EC5C3A136A33A1 /* Frameworks */,
+				0CB787F72C95FF01581E7E6F31C8D31D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				086C5A1879EB8B89E97BF8B13B519EAB /* PBXTargetDependency */,
+			);
+			name = gdpr_dialog;
+			productName = gdpr_dialog;
+			productReference = 1F57DA2EACD5FD0A0EB6243E0184E353 /* gdpr_dialog.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = AEFF3280FF9BDD631C1DDA59C13DE73A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */,
+				BF5595EEFEF8CA5E3888672450A76F15 /* gdpr_dialog */,
+				8B74B458B450D74B75744B87BD747314 /* Pods-Runner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0CB787F72C95FF01581E7E6F31C8D31D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB7BD191BD1F39C0ADB4DF46455427C /* consentform.html in Resources */,
+				85EB0886FDE943A2061105D55115EDBA /* consentform_de.html in Resources */,
+				1C69A27B5F104560BB27A929F007B418 /* consentform_es.html in Resources */,
+				364F356B3E7E5DD040CCC142EBF18956 /* consentform_fr.html in Resources */,
+				469AB07C83C44F54C1F9114741B0DF40 /* consentform_it.html in Resources */,
+				F486B19B906A41A1F5779E8DC45A643C /* consentform_ja.html in Resources */,
+				C32C38820CDBC032F5BCDC60937D541A /* consentform_ko.html in Resources */,
+				2C2C3A4937D05F72CC8F90EC7750072C /* consentform_nl.html in Resources */,
+				9AC77EE49A2D37F1803EA79732948948 /* consentform_pt.html in Resources */,
+				6596ACAACD380EC6704625CFAA91B178 /* consentform_ru.html in Resources */,
+				940FFEEC9906E2D2E49E93DD98F1F48B /* consentform_zh.html in Resources */,
+				987364A912692DE4C40D919118916881 /* style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80AFF8A98F84E36E7E08212C5CD83029 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		175D102422B7730E3D63F1C349F7FEDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56B8C5E4EFD18DF3807E4F819F62A840 /* Pods-Runner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A0D3E05B2B3743189352E61705B676B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788977BB14F161B89EC956E032A3ABE8 /* EGADialogStyle.m in Sources */,
+				DAD6057850939F322E3F6E9C05B2CB1C /* EGAHtmlReader.m in Sources */,
+				F91CC10451FDA7916F0F33A918D80352 /* EGAStyler.m in Sources */,
+				E4A3DAC525E6FA981E158DD31D35A0D2 /* gdpr_dialog-dummy.m in Sources */,
+				FA3895A7AFCA3327D2C99AD007F8D442 /* GdprDialogPlugin.m in Sources */,
+				089452F7CB4A6548AD513F2C53290FD0 /* PACConsentForm.m in Sources */,
+				2146A9E12929C2235941E8B7B424ABC8 /* PACError.m in Sources */,
+				5550563EC960A1044365F243531B51ED /* PACPersonalizedAdConsent.m in Sources */,
+				567315D2DCDF4A3207C1A1E3549D167F /* PACView.m in Sources */,
+				DF7DC6F6859CAF3DC0AEAB3AF98671C6 /* SwiftGdprDialogPlugin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		086C5A1879EB8B89E97BF8B13B519EAB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = D42A2E9F7F9814EE86C54276AD4CF674 /* PBXContainerItemProxy */;
+		};
+		842DE324D560843613093A5CC0ABB129 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = 967FAC4554C55992DADDA8B10190B458 /* PBXContainerItemProxy */;
+		};
+		D80AB61EDE0096775F08BC5144A76839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = gdpr_dialog;
+			target = BF5595EEFEF8CA5E3888672450A76F15 /* gdpr_dialog */;
+			targetProxy = 3788E816560FE2EC607B978F861DB025 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0307E56EB7F4972A738E3EAEA5DD4E20 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2E39580620F18324EFA99188F9DEF70 /* gdpr_dialog.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/gdpr_dialog/gdpr_dialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				PRODUCT_MODULE_NAME = gdpr_dialog;
+				PRODUCT_NAME = gdpr_dialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		052006C11EC8013903D2C0678D452186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A64A8FE26B972C74E2AE9C8DDDB76F3E /* Flutter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0572FE948794F77AEC4B2F4F1769605E /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F79F8269DC34AC56BB3D1D9652C0D86 /* Pods-Runner.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Profile;
+		};
+		0D3A93A1D434FDC7E18E450114317E65 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A64A8FE26B972C74E2AE9C8DDDB76F3E /* Flutter.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		231EBBED21EBFA9E197E0B25B7A2AFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B94B34C14B295F0BEA2A92C309BE5061 /* Flutter.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BDEB725F556B6F1B4A6F4AE1B9EBFF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDAECCF4B5E08124ED410F09FD5A5DF9 /* Pods-Runner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D42DC62C4F2E194221DF89C48496C98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		7EBD95226EFA529B5F57D3999A92F01D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2E39580620F18324EFA99188F9DEF70 /* gdpr_dialog.release.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/gdpr_dialog/gdpr_dialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				PRODUCT_MODULE_NAME = gdpr_dialog;
+				PRODUCT_NAME = gdpr_dialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9F8BDEEA6DACE6F5B754ECD44E724CCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D087CA456F1C611DD2CECF880EA0B656 /* gdpr_dialog.debug.xcconfig */;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				GCC_PREFIX_HEADER = "Target Support Files/gdpr_dialog/gdpr_dialog-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/gdpr_dialog/gdpr_dialog.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				PRODUCT_MODULE_NAME = gdpr_dialog;
+				PRODUCT_NAME = gdpr_dialog;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C2C6A4DEFD0EC67287FF6261AE49C448 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2FA70CA298C392CB8332ADEEDD1CE85 /* Pods-Runner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-armv7_arm64\"",
+					"$(inherited)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"\"/Users/ettore/flutter/bin/cache/artifacts/engine/ios-release/Flutter.xcframework/ios-x86_64-simulator\"",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Runner/Pods-Runner.modulemap";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					Flutter,
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E4D0D44B090D4284607EBBC4E71A96C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E8B1A15F84A5070E8064CC6CB39E53F7 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_PROFILE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Profile;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4D0D44B090D4284607EBBC4E71A96C1 /* Debug */,
+				E8B1A15F84A5070E8064CC6CB39E53F7 /* Profile */,
+				6D42DC62C4F2E194221DF89C48496C98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8A9C3FE75B0E98AB1D4FFBE543BC43E0 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDEB725F556B6F1B4A6F4AE1B9EBFF1 /* Debug */,
+				0572FE948794F77AEC4B2F4F1769605E /* Profile */,
+				C2C6A4DEFD0EC67287FF6261AE49C448 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				231EBBED21EBFA9E197E0B25B7A2AFDE /* Debug */,
+				0D3A93A1D434FDC7E18E450114317E65 /* Profile */,
+				052006C11EC8013903D2C0678D452186 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C726DBD5E20FB395E5C1B284119B0BD5 /* Build configuration list for PBXNativeTarget "gdpr_dialog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F8BDEEA6DACE6F5B754ECD44E724CCA /* Debug */,
+				0307E56EB7F4972A738E3EAEA5DD4E20 /* Profile */,
+				7EBD95226EFA529B5F57D3999A92F01D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
