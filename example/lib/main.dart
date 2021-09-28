@@ -22,15 +22,15 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: <Widget>[
               ElevatedButton(
-                child: Text('show dialog'),
+                child: Text('Show dialog'),
                 onPressed: () {
-                  GdprDialog.instance.showDialog(isForTest: false, testDeviceId: '').then((onValue) {
+                  GdprDialog.instance.showDialog(isForTest: true, testDeviceId: '').then((onValue) {
                     setState(() => status = 'dialog result == $onValue');
                   });
                 },
               ),
               ElevatedButton(
-                child: Text('get consent status'),
+                child: Text('Get consent status'),
                 onPressed: () => GdprDialog.instance
                     .getConsentStatus()
                     .then((value) => setState(() => status = 'consent status == $value')),

@@ -55,7 +55,7 @@ Add LICENSE
 Null safety
 
 ## 2.0.1
-Add types for returning value and add default values if invokeMethod will return null vavlue.
+Add types for returning value and add default values if invokeMethod will return null value.
 
 ## 2.0.2
 Add support test device on IOS platform. Thanks NoelRecords for pull request.

@@ -24,6 +24,8 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.embedding.engine.plugins.activity.ActivityAware;
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
+// Class for work with GDPR Consent Form
+// and for work with Consent Statuses
 public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler {
   private Activity activity;
   private MethodChannel channel;
@@ -90,6 +92,18 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
     }
   }
 
+  // Possible returned values:
+  //
+  // `OBTAINED` status means, that user already chose one of the variants
+  // ('Consent' or 'Do not consent');
+  //
+  // `REQUIRED` status means, that form should be shown by user, because his
+  // location is at EEA or UK;
+  //
+  // `NOT_REQUIRED` status means, that form would not be shown by user, because
+  // his location is not at EEA or UK;
+  //
+  // `UNKNOWN` status means, that there is no information about user location.
   private void getConsentStatus() {
     String resultStatus = "ERROR";
     ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
