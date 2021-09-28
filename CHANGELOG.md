@@ -59,3 +59,6 @@ Add types for returning value and add default values if invokeMethod will return
 
 ## 2.0.2
 Add support test device on IOS platform. Thanks NoelRecords for pull request.
+
+<!-- ## 2.1.0
+Configured library to Android v2 Embedding standard. Removed methods with custom changing of ConsentStatus. -->
