@@ -1,218 +1,171 @@
 package com.gmail.antonmolchan00.gdpr_dialog;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-
-import com.google.ads.consent.ConsentForm;
-import com.google.ads.consent.ConsentFormListener;
-import com.google.ads.consent.ConsentInfoUpdateListener;
-import com.google.ads.consent.ConsentInformation;
-import com.google.ads.consent.ConsentStatus;
-import com.google.ads.consent.DebugGeography;
-
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.google.android.ump.ConsentForm;
+import com.google.android.ump.FormError;
+import com.google.android.ump.UserMessagingPlatform;
+import com.google.android.ump.ConsentInformation;
+import com.google.android.ump.ConsentInformation.ConsentStatus;
+import com.google.android.ump.ConsentDebugSettings;
+import com.google.android.ump.ConsentRequestParameters;
 
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
+import io.flutter.embedding.engine.plugins.activity.ActivityAware;
+import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 
-
-public class GdprDialogPlugin implements MethodCallHandler {
-
+public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCallHandler {
   private Activity activity;
   private MethodChannel channel;
   private Result result;
-  private ConsentForm form;
 
-  private void checkForConsent(String publisherId, final String privacyUrl, boolean isForTest, String testDeviceId) {
-    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    if (isForTest) {
-      ConsentInformation.getInstance(activity).setDebugGeography(DebugGeography.DEBUG_GEOGRAPHY_EEA);
-      ConsentInformation.getInstance(activity).addTestDevice(testDeviceId);
-    }
-    String[] publisherIds = {publisherId}; // id владельца приложения в адмоб
-    consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
-      @Override
-      public void onConsentInfoUpdated(ConsentStatus consentStatus) {
-        switch (consentStatus) {
-          case PERSONALIZED:
-            returnResult(true);
-            break;
-          case NON_PERSONALIZED:
-            returnResult(false);
-            break;
-          case UNKNOWN:
-            if (ConsentInformation.getInstance(activity.getBaseContext()).isRequestLocationInEeaOrUnknown())
-              requestConsent(privacyUrl);
-            else
-              returnResult(true);
-            break;
-          default:
-            break;
+  @Override
+  public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+    channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), "gdpr_dialog");
+    channel.setMethodCallHandler(this);
+  }
+
+  @Override
+  public void onAttachedToActivity(ActivityPluginBinding activityPluginBinding) {
+    this.activity = activityPluginBinding.getActivity();
+  }
+
+  @Override
+  public void onDetachedFromActivityForConfigChanges() {
+    this.activity = null;
+  }
+
+  @Override
+  public void onReattachedToActivityForConfigChanges(ActivityPluginBinding activityPluginBinding) {
+    this.activity = activityPluginBinding.getActivity();
+  }
+
+  @Override
+  public void onDetachedFromActivity() {
+    this.activity = null;
+  }
+
+  @Override
+  public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+    channel.setMethodCallHandler(null);
+  }
+
+  @Override
+  public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+    this.result = result;
+    try {
+      if (call.method.equals("gdpr.activate")) {
+        boolean isForTest = false;
+        String testDeviceId = call.argument("testDeviceId");
+        try {
+          isForTest = call.argument("isForTest");
+        } catch (Exception ignored) {
         }
+
+        initializeForm(isForTest, testDeviceId);
+      } else if (call.method.equals("gdpr.getConsentStatus")) {
+        getConsentStatus();
+      } else {
+        result.notImplemented();
       }
-
-      @Override
-      public void onFailedToUpdateConsentInfo(String errorDescription) { }
-    });
+    } catch (Exception e) {
+      result.error("1", e.getMessage(), e.getStackTrace());
+    }
   }
 
-  private void returnResult (boolean result) {
+  private void returnResult(Object result) {
     try {
-    this.result.success(result);
-    }catch (Exception ignored){}
-  }
-
-  private void requestConsent(String url) {
-    URL privacyUrl = null;
-    try {
-      privacyUrl = new URL(url);
-    } catch (MalformedURLException ignored) { }
-    form = new ConsentForm.Builder(activity, privacyUrl)
-            .withListener(new ConsentFormListener() {
-              @Override
-              public void onConsentFormLoaded() {
-                if (form != null && !activity.isFinishing()) {
-                  form.show();
-                } else {
-                  returnResult(false);
-                }
-              }
-
-              @Override
-              public void onConsentFormOpened() { }
-
-              @Override
-              public void onConsentFormClosed(ConsentStatus consentStatus, Boolean userPrefersAdFree) {
-                switch (consentStatus) {
-                  case PERSONALIZED:
-                    returnResult(true);
-                    break;
-                  case NON_PERSONALIZED:
-                  case UNKNOWN:
-                    returnResult(false);
-                    break;
-                }
-              }
-
-              @Override
-              public void onConsentFormError(String errorDescription) {
-              }
-            })
-            .withPersonalizedAdsOption()
-            .withNonPersonalizedAdsOption()
-            .build();
-    form.load();
-  }
-
-  private GdprDialogPlugin(Activity activity, MethodChannel channel) {
-    this.channel = channel;
-    this.channel.setMethodCallHandler(this);
-    this.activity = activity;
-  }
-
-  public static void registerWith(Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "gdpr_dialog");
-    final GdprDialogPlugin plugin = new GdprDialogPlugin(registrar.activity(), channel);
-    channel.setMethodCallHandler(plugin);
-  }
-
-  private void setConsentToUnknown() {
-    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    consentInformation.setConsentStatus(ConsentStatus.UNKNOWN);
-    try {
-      this.result.success(true);
-    }catch (Exception ignored){}
-  }
-
-  private void setConsentToNonPersonal() {
-    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    consentInformation.setConsentStatus(ConsentStatus.NON_PERSONALIZED);
-    try {
-      this.result.success(true);
-    }catch (Exception ignored){}
-  }
-
-  private void setConsentToPersonal() {
-    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    consentInformation.setConsentStatus(ConsentStatus.PERSONALIZED);
-    try {
-      this.result.success(true);
-    }catch (Exception ignored){}
+      this.result.success(result);
+    } catch (Exception ignored) {
+    }
   }
 
   private void getConsentStatus() {
     String resultStatus = "ERROR";
-    ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    ConsentStatus status = consentInformation.getConsentStatus();
-    switch (status) {
-      case PERSONALIZED:
-        resultStatus = "PERSONALIZED";
-        break;
-      case NON_PERSONALIZED:
-        resultStatus = "NON_PERSONALIZED";
-        break;
-      case UNKNOWN:
+    ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
+    int consentStatus = consentInformation.getConsentStatus();
+    switch (consentStatus) {
+      case ConsentStatus.UNKNOWN:
         resultStatus = "UNKNOWN";
         break;
+      case ConsentStatus.OBTAINED:
+        resultStatus = "OBTAINED";
+        break;
+      case ConsentStatus.REQUIRED:
+        resultStatus = "REQUIRED";
+        break;
+      case ConsentStatus.NOT_REQUIRED:
+        resultStatus = "NOT_REQUIRED";
+        break;
     }
-    try {
-      this.result.success(resultStatus);
-    }catch (Exception ignored){}
+    returnResult(resultStatus);
   }
 
-  private void isUserFromEea(String publisherId, final Result result) {
-    String[] publisherIds = {publisherId};
-    final boolean[] isFromEurope = {false};
-    final ConsentInformation consentInformation = ConsentInformation.getInstance(activity);
-    consentInformation.requestConsentInfoUpdate(publisherIds, new ConsentInfoUpdateListener() {
-      @Override
-      public void onConsentInfoUpdated(ConsentStatus consentStatus) {
-        isFromEurope[0] = consentInformation.isRequestLocationInEeaOrUnknown();
-        try {
-          result.success(isFromEurope[0]);
-        }catch (Exception ignored){}
-      }
-      @Override
-      public void onFailedToUpdateConsentInfo(String reason) {
+  public void initializeForm(boolean isForTest, String testDeviceId) {
+    ConsentRequestParameters requestParams;
 
+    if (isForTest) {
+      ConsentDebugSettings debugSettings = new ConsentDebugSettings.Builder(activity.getBaseContext())
+          .setDebugGeography(ConsentDebugSettings.DebugGeography.DEBUG_GEOGRAPHY_EEA)
+          .addTestDeviceHashedId(testDeviceId).build();
+      requestParams = new ConsentRequestParameters.Builder().setConsentDebugSettings(debugSettings)
+          .setTagForUnderAgeOfConsent(false).build();
+    } else {
+      // Set tag for underage of consent. false means users are not underage.
+      requestParams = new ConsentRequestParameters.Builder().setTagForUnderAgeOfConsent(false).build();
+    }
+
+    ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
+    consentInformation.requestConsentInfoUpdate(activity, requestParams,
+        new ConsentInformation.OnConsentInfoUpdateSuccessListener() {
+          @Override
+          public void onConsentInfoUpdateSuccess() {
+            // The consent information state was updated.
+            // You are now ready to check if a form is available.
+            if (consentInformation.isConsentFormAvailable()) {
+              loadForm(consentInformation);
+              returnResult(true);
+            } else {
+              returnResult(false);
+            }
+          }
+        }, new ConsentInformation.OnConsentInfoUpdateFailureListener() {
+          @Override
+          public void onConsentInfoUpdateFailure(@Nullable FormError formError) {
+            GdprDialogPlugin.this.result.error(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
+          }
+        });
+  }
+
+  public void loadForm(ConsentInformation consentInformation) {
+    UserMessagingPlatform.loadConsentForm(activity, new UserMessagingPlatform.OnConsentFormLoadSuccessListener() {
+      @Override
+      public void onConsentFormLoadSuccess(ConsentForm consentForm) {
+        if (consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.REQUIRED) {
+          consentForm.show(activity, new ConsentForm.OnConsentFormDismissedListener() {
+            @Override
+            public void onConsentFormDismissed(@Nullable FormError formError) {
+              // Handle dismissal by reloading form.
+              loadForm(consentInformation);
+            }
+          });
+        }
+      }
+    }, new UserMessagingPlatform.OnConsentFormLoadFailureListener() {
+      @Override
+      public void onConsentFormLoadFailure(FormError formError) {
+        GdprDialogPlugin.this.result.error(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
       }
     });
   }
-
-  @Override
-  public void onMethodCall(MethodCall call, Result result) {
-      this.result = result;
-    if (call.method.equals("gdpr.activate")) {
-      boolean isForTest = false;
-      String publisherId = call.argument("publisherId");
-      String privacyUrl = call.argument("privacyUrl");
-      String testDeviceId = call.argument("testDeviceId");
-      try { isForTest = call.argument("isForTest");
-      }catch (Exception ignored){}
-
-      checkForConsent(publisherId, privacyUrl, isForTest, testDeviceId);
-
-    } else if (call.method.equals("gdpr.setUnknown")){
-      setConsentToUnknown();
-    } else if (call.method.equals("gdpr.getConsentStatus")) {
-      getConsentStatus();
-    } else if (call.method.equals("gdpr.requestLocation")) {
-      String publisherId = call.argument("publisherId");
-      isUserFromEea(publisherId, result);
-    } else if (call.method.equals("gdpr.setConsentToNonPersonal")){
-      setConsentToNonPersonal();
-    } else if (call.method.equals("gdpr.setConsentToPersonal")){
-      setConsentToPersonal();
-    } else {
-      result.notImplemented();
-    }
-  }
 }
-
