@@ -77,6 +77,8 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
         initializeForm(isForTest, testDeviceId);
       } else if (call.method.equals("gdpr.getConsentStatus")) {
         getConsentStatus();
+      } else if (call.method.equals("gdpr.reset")) {
+        resetDecision();
       } else {
         result.notImplemented();
       }
@@ -181,5 +183,13 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
         GdprDialogPlugin.this.result.error(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
       }
     });
+  }
+
+  // In testing your app with the UMP SDK, you may find it helpful
+  // to reset the state of the SDK so that you can simulate
+  // a user's first install experience.
+  public void resetDecision() {
+    ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
+    consentInformation.reset();
   }
 }

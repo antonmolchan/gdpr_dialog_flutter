@@ -45,4 +45,11 @@ class GdprDialog {
     final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
     return result;
   }
+
+  /// In testing your app with the UMP SDK, you may find it helpful
+  /// to reset the state of the SDK so that you can simulate
+  /// a user's first install experience.
+  Future<void> resetDecision() async {
+    return await _channel.invokeMethod('gdpr.reset');
+  }
 }
