@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 /// Class for work with native GDPR Consent Form
@@ -22,11 +23,16 @@ class GdprDialog {
     bool isForTest = false,
     String testDeviceId = '',
   }) async {
-    return await _channel.invokeMethod('gdpr.activate', <String, dynamic>{
-          'isForTest': isForTest,
-          'testDeviceId': testDeviceId,
-        }) ??
-        false;
+    try {
+      return await _channel.invokeMethod('gdpr.activate', <String, dynamic>{
+            'isForTest': isForTest,
+            'testDeviceId': testDeviceId,
+          }) ??
+          false;
+    } on Exception catch (e) {
+      debugPrint('$e');
+      return false;
+    }
   }
 
   /// Possible returned values:
@@ -42,14 +48,23 @@ class GdprDialog {
   ///
   /// `UNKNOWN` status means, that there is no information about user location.
   Future<String> getConsentStatus() async {
-    final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
-    return result;
+    try {
+      final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
+      return result;
+    } on Exception catch (e) {
+      debugPrint('$e');
+      return '';
+    }
   }
 
   /// In testing your app with the UMP SDK, you may find it helpful
   /// to reset the state of the SDK so that you can simulate
   /// a user's first install experience.
   Future<void> resetDecision() async {
-    return await _channel.invokeMethod('gdpr.reset');
+    try {
+      await _channel.invokeMethod('gdpr.reset');
+    } on Exception catch (e) {
+      debugPrint('$e');
+    }
   }
 }
