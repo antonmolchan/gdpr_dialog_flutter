@@ -83,13 +83,20 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
         result.notImplemented();
       }
     } catch (Exception e) {
-      result.error("1", e.getMessage(), e.getStackTrace());
+      returnError("1", e.getMessage(), e.getStackTrace());
     }
   }
 
   private void returnResult(Object result) {
     try {
       this.result.success(result);
+    } catch (Exception ignored) {
+    }
+  }
+
+  private void returnError(String errorCode, String message, Object stackTrace) {
+    try {
+      this.result.error(errorCode, message, stackTrace);
     } catch (Exception ignored) {
     }
   }
@@ -158,7 +165,7 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
         }, new ConsentInformation.OnConsentInfoUpdateFailureListener() {
           @Override
           public void onConsentInfoUpdateFailure(@Nullable FormError formError) {
-            GdprDialogPlugin.this.result.error(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
+            returnError(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
           }
         });
   }
@@ -167,7 +174,7 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
     UserMessagingPlatform.loadConsentForm(activity, new UserMessagingPlatform.OnConsentFormLoadSuccessListener() {
       @Override
       public void onConsentFormLoadSuccess(ConsentForm consentForm) {
-        if (consentInformation.getConsentStatus() == ConsentInformation.ConsentStatus.REQUIRED) {
+        if (consentInformation.getConsentStatus() == ConsentStatus.REQUIRED) {
           consentForm.show(activity, new ConsentForm.OnConsentFormDismissedListener() {
             @Override
             public void onConsentFormDismissed(@Nullable FormError formError) {
@@ -180,7 +187,7 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
     }, new UserMessagingPlatform.OnConsentFormLoadFailureListener() {
       @Override
       public void onConsentFormLoadFailure(FormError formError) {
-        GdprDialogPlugin.this.result.error(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
+        returnError(String.valueOf(formError.getErrorCode()), formError.getMessage(), "");
       }
     });
   }
@@ -189,7 +196,13 @@ public class GdprDialogPlugin implements FlutterPlugin, ActivityAware, MethodCal
   // to reset the state of the SDK so that you can simulate
   // a user's first install experience.
   public void resetDecision() {
-    ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
-    consentInformation.reset();
+    try {
+      ConsentInformation consentInformation = UserMessagingPlatform.getConsentInformation(activity.getBaseContext());
+      consentInformation.reset();
+
+      returnResult(true);
+    } catch (Exception e) {
+      returnError("not specified code error", e.getMessage(), e.getStackTrace());
+    }
   }
 }
