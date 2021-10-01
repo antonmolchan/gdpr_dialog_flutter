@@ -8,14 +8,14 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 A new Flutter project.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://github.com/antonmolchan/gdpr_dialog_flutter'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'PersonalizedAdConsent'
+  s.dependency 'UserMessagingPlatform'
   s.ios.deployment_target = '8.0'
 end
 
