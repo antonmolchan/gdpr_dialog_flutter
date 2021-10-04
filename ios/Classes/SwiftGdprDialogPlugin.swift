@@ -2,6 +2,8 @@ import Flutter
 import UIKit
 import UserMessagingPlatform // UMP SDK made for Google Mobile Ads
 
+// Class for work with GDPR Consent Form
+// and for work with Consent Statuses
 public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -28,6 +30,18 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
     }
   }
   
+  // Possible returned values:
+  //
+  // `OBTAINED` status means, that user already chose one of the variants
+  // ('Consent' or 'Do not consent');
+  //
+  // `REQUIRED` status means, that form should be shown by user, because his
+  // location is at EEA or UK;
+  //
+  // `NOT_REQUIRED` status means, that form would not be shown by user, because
+  // his location is not at EEA or UK;
+  //
+  // `UNKNOWN` status means, that there is no information about user location.
   private func getConsentStatus(result: @escaping FlutterResult) {
     var statusResult = "ERROR"
     do {
@@ -110,6 +124,9 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
     })
   }
 
+  // In testing your app with the UMP SDK, you may find it helpful
+  // to reset the state of the SDK so that you can simulate
+  // a user's first install experience.
   private func resetDecision() {
     do {
       UMPConsentInformation.sharedInstance.reset()
