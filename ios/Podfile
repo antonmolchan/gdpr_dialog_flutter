@@ -1,1 +1,3 @@
-pod 'Google-Mobile-Ads-SDK'
+target 'gdpr_dialog' do
+  pod 'Google-Mobile-Ads-SDK'
+end
