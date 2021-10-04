@@ -15,7 +15,7 @@ A new Flutter project.
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'UserMessagingPlatform'
+  # s.dependency 'UserMessagingPlatform'
   s.ios.deployment_target = '8.0'
 end
 
