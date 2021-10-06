@@ -79,7 +79,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
 
     // Request an update to the consent information.
     UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
-        withParameters: parameters,
+        with: parameters,
         completionHandler: { [self] error in
 
           // The consent information has updated.
@@ -98,7 +98,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
   }
   
   private func loadForm(result: @escaping FlutterResult) {
-    UMPConsentForm.load(withCompletionHandler: { form, loadError in
+    UMPConsentForm.load(completionHandler: { form, loadError in
       if loadError != nil {
         print("Error on loadForm: \(loadError)")
         result(false)
@@ -107,7 +107,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         // later.
         if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.required {
           form?.present(
-              from: self,
+            from: (UIApplication.shared.delegate?.window?!.rootViewController)!,
               completionHandler: { dismissError in
                 if dismissError != nil {
                   print("Error on loadForm completionHandler: \(loadError)")
@@ -127,7 +127,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
   // In testing your app with the UMP SDK, you may find it helpful
   // to reset the state of the SDK so that you can simulate
   // a user's first install experience.
-  private func resetDecision() {
+  private func resetDecision(result: @escaping FlutterResult) {
     do {
       UMPConsentInformation.sharedInstance.reset()
       result(true)
