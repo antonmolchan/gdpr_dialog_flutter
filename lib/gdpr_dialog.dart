@@ -24,11 +24,13 @@ class GdprDialog {
     String testDeviceId = '',
   }) async {
     try {
-      return await _channel.invokeMethod('gdpr.activate', <String, dynamic>{
+      final bool result = await _channel.invokeMethod('gdpr.activate', <String, dynamic>{
             'isForTest': isForTest,
             'testDeviceId': testDeviceId,
           }) ??
           false;
+      debugPrint('Result on showing of GDPR Form --- $result');
+      return result;
     } on Exception catch (e) {
       debugPrint('$e');
       return false;
@@ -50,6 +52,7 @@ class GdprDialog {
   Future<String> getConsentStatus() async {
     try {
       final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
+      debugPrint('Got GDPR status: $result');
       return result;
     } on Exception catch (e) {
       debugPrint('$e');
@@ -63,6 +66,7 @@ class GdprDialog {
   Future<void> resetDecision() async {
     try {
       await _channel.invokeMethod('gdpr.reset');
+      debugPrint('Successfully dropped GDPR decision');
     } on Exception catch (e) {
       debugPrint('$e');
     }
