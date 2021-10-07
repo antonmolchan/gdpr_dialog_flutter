@@ -30,7 +30,7 @@ class GdprDialog {
           }) ??
           false;
       debugPrint('Result on showing of GDPR Form --- $result');
-      return result;
+      return result || await getConsentStatus() == ConsentStatus.notRequired;
     } on Exception catch (e) {
       debugPrint('$e');
       return false;
@@ -49,14 +49,25 @@ class GdprDialog {
   /// location is not at EEA or UK;
   ///
   /// `UNKNOWN` status means, that there is no information about user location.
-  Future<String> getConsentStatus() async {
+  Future<ConsentStatus> getConsentStatus() async {
     try {
       final String result = await _channel.invokeMethod('gdpr.getConsentStatus', []) ?? '';
-      debugPrint('Got GDPR status: $result');
-      return result;
+      debugPrint('Got a GDPR status: $result');
+
+      switch (result) {
+        case 'REQUIRED':
+          return ConsentStatus.required;
+        case 'NOT_REQUIRED':
+          return ConsentStatus.notRequired;
+        case 'OBTAINED':
+          return ConsentStatus.obtained;
+        case 'UNKNOWN':
+        default:
+          return ConsentStatus.unknown;
+      }
     } on Exception catch (e) {
       debugPrint('$e');
-      return '';
+      return ConsentStatus.unknown;
     }
   }
 
@@ -71,4 +82,22 @@ class GdprDialog {
       debugPrint('$e');
     }
   }
+}
+
+/// Consent Statuses explaining situation about Consent Form
+enum ConsentStatus {
+  /// `notRequired` status means, that form would not be shown by user, because his
+  /// location is not at EEA or UK;
+  notRequired,
+
+  /// `required` status means, that form should be shown by user, because his
+  /// location is at EEA or UK;
+  required,
+
+  /// `obtained` status means, that user already chose one of the variants ('Consent'
+  /// or 'Do not consent');
+  obtained,
+
+  /// `unknown` status means, that there is no information about user location.
+  unknown,
 }
