@@ -1,8 +1,9 @@
 import Flutter
 import UIKit
-import PersonalizedAdConsent
+import UserMessagingPlatform // UMP SDK made for Google Mobile Ads
 
-//import PersonalizedAdConsent гугловская библиотека
+// Class for work with GDPR Consent Form
+// and for work with Consent Statuses
 public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
         
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -11,149 +12,128 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
-    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-      switch (call.method) {
+  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    switch (call.method) {
       case "gdpr.activate":
         let arg = call.arguments as? NSDictionary
-        let pubId = arg!["publisherId"] as? String;
-        let url = arg!["privacyUrl"] as? String;
         let isTest = arg!["isForTest"] as? Bool;
         let deviceId = arg!["testDeviceId"] as? String;
         
-        self.checkConsent(result: result, publisherId: pubId!, privacyUrl: url!, isForTest: isTest!, testDeviceId: deviceId!)
+        self.checkConsent(result: result, isForTest: isTest!, testDeviceId: deviceId!)
 
-       case "gdpr.setUnknown":
-        self.setConsentToUnknown(result: result);
-        
-        case "gdpr.setConsentToNonPersonal":
-         self.setConsentToNonPersonal(result: result);
-        
-        case "gdpr.getConsentStatus":
-         self.getConsentStatus(result: result);
-        
-        case "gdpr.setConsentToPersonal":
-         self.setConsentToPersonal(result: result);
-        
-        case "gdpr.requestLocation":
-            let arg = call.arguments as? NSDictionary
-            let pubId = arg!["publisherId"] as? String;
-            
-         self.isUserFromEea(result: result, publisherId: pubId!);
-        
+      case "gdpr.getConsentStatus":
+        self.getConsentStatus(result: result);
+      case "gdpr.reset":
+        self.resetDecision(result: result);
       default:
         result(FlutterMethodNotImplemented)
+    }
+  }
+  
+  // Possible returned values:
+  //
+  // `OBTAINED` status means, that user already chose one of the variants
+  // ('Consent' or 'Do not consent');
+  //
+  // `REQUIRED` status means, that form should be shown by user, because his
+  // location is at EEA or UK;
+  //
+  // `NOT_REQUIRED` status means, that form would not be shown by user, because
+  // his location is not at EEA or UK;
+  //
+  // `UNKNOWN` status means, that there is no information about user location.
+  private func getConsentStatus(result: @escaping FlutterResult) {
+    var statusResult = "ERROR"
+    do {
+      let status = UMPConsentInformation.sharedInstance.consentStatus
+      if status == .notRequired {
+        print(".notRequired");
+        statusResult = "NOT_REQUIRED"
+      } else if status == .required {
+        print(".required");
+        statusResult = "REQUIRED"
+      } else if status == .obtained {
+        print(".obtained");
+        statusResult = "OBTAINED"
+      } else if status == .unknown {
+        print(".unknown");
+        statusResult = "UNKNOWN"
       }
+    } catch let error {
+      print("Error on getConsentStatus: \(error)")
+    }
+    result(statusResult)
+  }
+
+  private func checkConsent(result: @escaping FlutterResult, isForTest: Bool, testDeviceId: String) {
+    let parameters = UMPRequestParameters()
+    // Set tag for under age of consent. Here false means users are not under age.
+    parameters.tagForUnderAgeOfConsent = false
+
+    if isForTest {
+      let debugSettings = UMPDebugSettings()
+      debugSettings.testDeviceIdentifiers = [ testDeviceId ]
+      debugSettings.geography = UMPDebugGeography.EEA
+      parameters.debugSettings = debugSettings
     }
 
-    private func setConsentToUnknown(result: @escaping FlutterResult) {
-        PACConsentInformation.sharedInstance.consentStatus = .unknown;
-         print("consent == UNKNOWN");
-        result(true);
-    }
-    
-    private func setConsentToNonPersonal(result: @escaping FlutterResult) {
-        PACConsentInformation.sharedInstance.consentStatus = .nonPersonalized;
-         print("consent == NON_PERSONAL");
-        result(true);
-    }
-    
-    private func setConsentToPersonal(result: @escaping FlutterResult) {
-        PACConsentInformation.sharedInstance.consentStatus = .personalized;
-         print("consent == PERSONAL");
-        result(true);
-    }
-    
-    private func isUserFromEea(result: @escaping FlutterResult,  publisherId: String) {
-        
-        PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
-            forPublisherIdentifiers: [publisherId])
-        {(_ error: Error?) -> Void in
-            if let error = error {
-                print("ERROR \(error)")
-                result(false)
-            } else {
-                result(PACConsentInformation.sharedInstance.isRequestLocationInEEAOrUnknown);
+    // Request an update to the consent information.
+    UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
+        with: parameters,
+        completionHandler: { [self] error in
+
+          // The consent information has updated.
+          if error != nil {
+            print("Error on requestConsentInfoUpdate: \(error)")
+            result(false)
+          } else {
+            // The consent information state was updated.
+            // You are now ready to see if a form is available.
+            let formStatus = UMPConsentInformation.sharedInstance.formStatus
+            if formStatus == UMPFormStatus.available {
+              loadForm(result: result)
             }
-        
-    }
-    }
-    
-    private func getConsentStatus(result: @escaping FlutterResult) {
-        var statusResult = "ERROR"
-        let status = PACConsentInformation.sharedInstance.consentStatus
-         if status == .nonPersonalized {
-            print("nonPersonalized");
-            statusResult = "NON_PERSONALIZED"
-         } else if status == .personalized {
-            print(".personalized");
-            statusResult = "PERSONALIZED"
-         } else if status == .unknown {
-            print(".unknown");
-            statusResult = "UNKNOWN"
-        }
-        
-        result(statusResult)
-    }
-
-     private func checkConsent(result: @escaping FlutterResult, publisherId: String, privacyUrl: String , isForTest: Bool, testDeviceId: String) {
-            if isForTest {
-               // Geography appears as in EEA for debug devices.
-               PACConsentInformation.sharedInstance.debugIdentifiers = [ testDeviceId ];
-               PACConsentInformation.sharedInstance.debugGeography = PACDebugGeography.EEA;
-            }
-            
-            showConsent(publisherId: publisherId, privacyUrl: privacyUrl) { (bool) in
-                print("result IOS ++++++++  " , bool)
-                result(bool)
-            };
-
-    }
-    
-    func showConsent(publisherId: String, privacyUrl: String, checkBool : @escaping(Bool) -> Void)
-    {
-    
-        PACConsentInformation.sharedInstance.requestConsentInfoUpdate(
-            forPublisherIdentifiers: [publisherId])
-        {(_ error: Error?) -> Void in
-            if let error = error {
-                print("ERROR \(error)")
-                checkBool(false)
-            } else {
-                print("Success GDPG")
-                if PACConsentInformation.sharedInstance.isRequestLocationInEEAOrUnknown == true {
-                
-                let url = URL(string: privacyUrl)!
-                let form = PACConsentForm(applicationPrivacyPolicyURL: url)!
-                    form.shouldOfferPersonalizedAds = true
-                        form.shouldOfferNonPersonalizedAds = true
-                
-                form.load { (Error) in
-                    if Error != nil {
-                        checkBool(false)
-                        print("ERROR === 1 \(String(describing: Error))")
-                    } else  {
-                        form.present(from: (UIApplication.shared.delegate?.window?!.rootViewController)!) { (error, user) in
-                            if error != nil {
-                                checkBool(false)
-                            } else {
-                                let status = PACConsentInformation.sharedInstance.consentStatus
-                                 if status == .nonPersonalized {
-                                    print("nonPersonalized");
-                                    checkBool(false)
-                                }
-                                if status == .personalized{
-                                    print("personalized");
-                                    checkBool(true)
-                                }
-                            }
-                        }
-                    }
-                 }
+          }
+        })
+  }
+  
+  private func loadForm(result: @escaping FlutterResult) {
+    UMPConsentForm.load(completionHandler: { form, loadError in
+      if loadError != nil {
+        print("Error on loadForm: \(loadError)")
+        result(false)
+      } else {
+        // Present the form. You can also hold on to the reference to present
+        // later.
+        if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.required {
+          form?.present(
+            from: (UIApplication.shared.delegate?.window?!.rootViewController)!,
+              completionHandler: { dismissError in
+                if dismissError != nil {
+                  print("Error on loadForm completionHandler: \(loadError)")
+                  result(false)
                 } else {
-                    print("ne iz evropi")
-                    checkBool(true)
+                  if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.obtained {
+                    // App can start requesting ads.
+                  }
                 }
-            }
+              })
         }
+        result(true)
+      }
+    })
+  }
+
+  // In testing your app with the UMP SDK, you may find it helpful
+  // to reset the state of the SDK so that you can simulate
+  // a user's first install experience.
+  private func resetDecision(result: @escaping FlutterResult) {
+    do {
+      UMPConsentInformation.sharedInstance.reset()
+      result(true)
+    } catch let error {
+      print("Error on resetDecision: \(error)")
+      result(false)
     }
+  }
 }
