@@ -24,7 +24,8 @@ class _MyAppState extends State<MyApp> {
               ElevatedButton(
                 child: Text('Show dialog'),
                 onPressed: () {
-                  GdprDialog.instance.showDialog(isForTest: true, testDeviceId: '').then((onValue) {
+                  GdprDialog.instance.resetDecision();
+                  GdprDialog.instance.showDialog(isForTest: false, testDeviceId: '').then((onValue) {
                     setState(() => status = 'dialog result == $onValue');
                   });
                 },
