@@ -16,9 +16,14 @@ class GdprDialog {
   ///
   /// Function returns `true` if
   /// Consent Form loaded (but not required to be shown)
+  /// ConsentStatuses for `true`:
+  /// `REQUIRED`, `OBTAINED` or `NOT_REQUIRED`
   ///
   /// returns `false` because of
   /// error during loading of Consent Form
+  ///
+  /// If [isForTest] equals `true`
+  /// then you need to specify [testDeviceId]
   Future<bool> showDialog({
     bool isForTest = false,
     String testDeviceId = '',
