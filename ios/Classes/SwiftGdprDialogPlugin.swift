@@ -79,7 +79,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
 
     // Request an update to the consent information.
     UMPConsentInformation.sharedInstance.requestConsentInfoUpdate(
-        withParameters: parameters,
+        with: parameters,
         completionHandler: { [self] error in
 
           // The consent information has updated.
@@ -102,7 +102,7 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
 
   private func loadForm(result: @escaping FlutterResult) {
     UMPConsentForm.load(
-      withCompletionHandler: { form, loadError in
+      completionHandler: { form, loadError in
         if loadError != nil {
           print("Error on loadForm: \(loadError)")
           result(false)
