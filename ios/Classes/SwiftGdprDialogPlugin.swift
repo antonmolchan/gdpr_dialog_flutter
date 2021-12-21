@@ -92,36 +92,41 @@ public class SwiftGdprDialogPlugin: NSObject, FlutterPlugin {
             let formStatus = UMPConsentInformation.sharedInstance.formStatus
             if formStatus == UMPFormStatus.available {
               loadForm(result: result)
+            } else if formStatus == UMPFormStatus.unavailable {
+              // Consent forms are unavailable. Showing a consent form is not required.
+              result(true)
             }
           }
         })
   }
-  
+
   private func loadForm(result: @escaping FlutterResult) {
-    UMPConsentForm.load(completionHandler: { form, loadError in
-      if loadError != nil {
-        print("Error on loadForm: \(loadError)")
-        result(false)
-      } else {
-        // Present the form. You can also hold on to the reference to present
-        // later.
-        if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.required {
-          form?.present(
-            from: (UIApplication.shared.delegate?.window?!.rootViewController)!,
-              completionHandler: { dismissError in
-                if dismissError != nil {
-                  print("Error on loadForm completionHandler: \(loadError)")
-                  result(false)
-                } else {
-                  if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.obtained {
-                    // App can start requesting ads.
+    UMPConsentForm.load(
+      completionHandler: { form, loadError in
+        if loadError != nil {
+          print("Error on loadForm: \(loadError)")
+          result(false)
+        } else {
+          // Present the form. You can also hold on to the reference to present
+          // later.
+          if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.required {
+            form?.present(
+              from: (UIApplication.shared.delegate?.window?!.rootViewController)!,
+                completionHandler: { dismissError in
+                  if dismissError != nil {
+                    print("Error on loadForm completionHandler: \(dismissError)")
+                    result(false)
                   }
-                }
-              })
+                  // else {
+                  //   if UMPConsentInformation.sharedInstance.consentStatus == UMPConsentStatus.obtained {
+                  //     --- App can start requesting ads. ---
+                  //   }
+                  // }
+                })
+          }
+          result(true)
         }
-        result(true)
-      }
-    })
+      })
   }
 
   // In testing your app with the UMP SDK, you may find it helpful
