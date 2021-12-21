@@ -60,8 +60,9 @@ Add types for returning value and add default values if invokeMethod will return
 ## 2.0.2
 Add support test device on IOS platform. Thanks NoelRecords for pull request.
 
-<!-- ## 2.1.0
+## 2.1.0
 Upgraded package to Flutter 2.5, especially for Android v2 Embedding;
 Changed android API from com.google.ads.consent to com.google.android.ump;
 Removed setters for specified Consent Status;
-Removed configuration parameters (publisherId and privacyUrl in showDialog function), due to uselessness;-->
+Removed configuration parameters (publisherId and privacyUrl in showDialog function), due to uselessness;
+Thanks Nikita Sadchenko for this update.
