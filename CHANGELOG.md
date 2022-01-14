@@ -66,3 +66,6 @@ Changed android API from com.google.ads.consent to com.google.android.ump;
 Removed setters for specified Consent Status;
 Removed configuration parameters (publisherId and privacyUrl in showDialog function), due to uselessness;
 Thanks Nikita Sadchenko for this update.
+
+## 2.1.1
+Fixed issue about non-responsable GDPR dialog
